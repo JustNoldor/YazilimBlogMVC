@@ -1,0 +1,11 @@
+﻿
+@model IEnumerable<B403Blog.Models.EntityFramework.Kategori>
+
+<div class="fh5co_tags_all">
+@foreach (B403Blog.Models.EntityFramework.Kategori kategori in Model)
+{
+
+    <a href="/Kategori/Index/@kategori.KategoriId" class="fh5co_tagg"> @kategori.Adi (@kategori.Makale.Count)</a>
+
+}
+</div>

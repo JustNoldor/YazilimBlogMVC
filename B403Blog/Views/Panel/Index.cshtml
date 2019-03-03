@@ -1,0 +1,92 @@
+﻿@using B403Blog.Models.EntityFramework
+
+@model IEnumerable<B403Blog.Models.EntityFramework.Makale>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/Panel.cshtml";
+}
+
+@helper IcerikKisalt(string icerik)
+{
+    if (icerik.Length > 50)
+    {
+        @icerik.Substring(0, 50);
+    }
+    else
+    {
+        @icerik;
+    }
+}
+
+<script>
+    $(function () {
+        $("#tblMakaleler").on("click", ".btnMakaleSil", function () {
+            var btn = $(this);
+            bootbox.confirm("Makaleyi Silmek istediğinize emin misiniz?", function (result) {
+                if (result) {
+                    var id = btn.data("id");
+                    $.ajax({
+                        type: "GET",
+                        url: "/Panel/Sil/" + id,
+                        success: function () {
+                            btn.parent().parent().remove();
+                        }
+
+                    });
+                }
+            })
+        });
+    });
+</script>
+
+<script>
+    $(document).ready(function () {
+        $('#tblMakaleler').DataTable();
+    });
+</script>
+
+<h2>Makale İçerik Listesi   @Html.ActionLink("Yeni Makale", "MakaleEkle", null, new { @class = "btn btn-success" })</h2>
+<table class="tabloduzen" id="tblMakaleler">
+    @*<table class="table table-bordered dataTable" id="dataTable" width="100%" cellspacing="0" role="grid" aria-describedby="dataTable_info" style="width:100%;">*@
+
+    <thead>
+
+        <tr>
+            <th>Başlık  </th>
+            <th>Açıklama  </th>
+            <th>Eklenme Tarihi  </th>
+            <th>Güncelle</th>
+            <th>Sil</th>
+
+
+        </tr>
+    </thead>
+    <tbody>
+
+        @foreach (var mkl in Model)
+        {
+            <tr>
+                <td>@mkl.Baslik</td>
+                <td>@mkl.Aciklama</td>
+                <td>@mkl.EklenmeTarihi</td>
+                <td> @Html.ActionLink("Güncelle", "Guncelle", new { id = mkl.MakaleId }, new { @class = "btn btn-warning" }) </td>
+                <td> <a class="btn btn-danger btnMakaleSil" data-id="@mkl.MakaleId">Sil</a></td>
+
+                @*<td>
+                        <a href="#" class="btn btn-danger btn-icon-split">
+                            <span class="icon text-white-50">
+                                <i class="fas fa-trash"></i>
+                            </span>
+                            <span class="text">Sil</span>
+                        </a>
+                    </td>*@
+            </tr>
+        }
+    </tbody>
+
+
+
+
+</table>
+

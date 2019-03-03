@@ -1,0 +1,63 @@
+﻿@model B403Blog.Models.EntityFramework.Kullanici
+
+@{
+    ViewBag.Title = "UyeEkle";
+    Layout = "~/Views/Shared/Panel.cshtml";
+}
+
+<h2>Yönetici Ekleme Formu</h2>
+
+<form action="/PanelUyeler/Ekle" method="post" enctype="multipart/form-data">
+    <table class="table table-bordered">
+        <tr>
+            <th>Adı</th>
+            <td> <input type="text" name="Adi" class="form-control" value="" /></td>
+        </tr>
+        <tr>
+            <th>Soyadı</th>
+            <td> <input type="text" name="Soyadi" class="form-control" value="" /></td>
+
+        </tr>
+        <tr>
+            <th>Kullanıcı Adı</th>
+            <td> <input type="text" name="KullaniciAdi" class="form-control" value="" /></td>
+        </tr>
+        <tr>
+            <th>Parola</th>
+            <td> <input type="password" name="Parola" class="form-control" value="" /></td>
+        </tr>
+        <tr>
+            <th>Mail</th>
+            <td> <input type="text" name="MailAdres" class="form-control" value="" /></td>
+
+        </tr>
+        <tr>
+            <th>Rolü </th>
+            <td>
+                <div class="input-group mb-3">
+                    <select class="btn btn-outline-secondary dropdown-toggle" style="width: 100%;" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" name="Role">
+                        @foreach (B403Blog.Models.EntityFramework.Rol item in ViewBag.Kullanicilar)
+                        {
+                            <option value="@item.RollID">
+                                @item.RolAdi
+                            </option>
+
+                        }
+                    </select>
+                </div>
+            </td>
+        </tr>
+
+        <tr>
+            <th>Resim : </th>
+            <td class="btn btn-outline-secondary" style="width: 100%;"> <input type="file" name="resim" value=" " /> </td>
+        </tr>
+        <tr>
+            <td></td>
+            <th>
+                <input type="submit" name="name" id="editorbtn" class="btn btn-success" style="width: 100%;padding:25px;" value="Üye Ekle" />
+            </th>
+        </tr>
+    </table>
+
+</form>

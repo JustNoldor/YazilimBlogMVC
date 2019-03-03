@@ -1,0 +1,53 @@
+﻿@using B403Blog.Models.EntityFramework
+
+@model IEnumerable<B403Blog.Models.EntityFramework.Kategori>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/Panel.cshtml";
+}
+
+@if (ViewBag.msg != null)
+{
+    <script>
+        $(".").click(function () {
+            alert(@ViewBag);
+        });
+    </script>
+
+}
+
+<h2>Kategori Listesi   @Html.ActionLink("Yeni Kategori", "KategoriEkle", null, new { @class = "btn btn-success" })</h2>
+
+
+<table class="table table-bordered">
+    <thead>
+
+        <tr>
+            <th>Kategori Adı  </th>
+            <th>Açıklama </th>
+            <th>Makale Sayısı</th>
+            <th>Güncelle </th>
+            <th>Sil </th>
+
+        </tr>
+    </thead>
+    <tbody>
+
+        @foreach (var ktgr in Model)
+        {
+            <tr>
+                <td>@ktgr.Adi</td>
+                <td>@ktgr.Aciklama</td>
+                <td> @ktgr.Makale.Count</td>
+                <td> <a class="btn btn-warning" href="/PanelKategori/Guncelle/@ktgr.KategoriId">Güncelle</a></td>
+                <td> <a class="btn btn-danger" href="/PanelKategori/Sil/@ktgr.KategoriId">Sil</a></td>
+            </tr>
+        }
+    </tbody>
+
+
+
+
+</table>
+

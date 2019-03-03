@@ -1,0 +1,40 @@
+﻿body {
+    background: #f6f6f6;
+}
+
+.alert {
+    padding: 10px 35px 10px 14px;
+    background-color: #eee;
+    border-radius: 4px;
+    position: relative;
+    margin: 10px 0;
+}
+
+    .alert .close {
+        position: absolute;
+        border: 1px;
+        top: 0px;
+        right: 5px;
+        background: none;
+        color: inherit;
+        color: #000;
+        font-size: 25px;
+        font-weight: bold;
+        cursor: pointer;
+        width: 20px;
+        height: 0px;
+    }
+
+        .alert .close:active, .alert .close:focus {
+            outline: 0;
+        }
+
+    .alert p {
+        margin: 0;
+    }
+
+.alert--error {
+    background: #d4edf7;
+    border-color: #93c7da;
+    color: #114a59;
+}

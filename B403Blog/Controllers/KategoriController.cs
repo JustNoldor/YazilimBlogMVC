@@ -1,0 +1,36 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using System.Web.Mvc;
+using B403Blog.Models.EntityFramework;
+using B403Blog.Models;
+using System.Data.Entity;
+using System.Data;
+
+namespace B403Blog.Controllers
+{
+    public class KategoriController : Controller
+    {
+        BlogYazilimEntities1 db = new BlogYazilimEntities1();
+
+
+
+        // GET: Kategori
+        public ActionResult Index(int id)
+        {
+            return View(id);
+        }
+
+        public PartialViewResult KategoriWidget()
+        {
+            return PartialView(db.Kategori.ToList());
+        }
+
+        public ActionResult MakaleListele(int id)
+        {
+            var data = db.Makale.Where(x => x.Kategori.KategoriId == id).OrderByDescending(x=>x.EklenmeTarihi).ToList();
+            return View("MakaleListeleWidget", data);
+        }
+    }
+}

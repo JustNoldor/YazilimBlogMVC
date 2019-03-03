@@ -1,0 +1,34 @@
+﻿
+@{
+    Layout = null;
+}
+
+@model IEnumerable<B403Blog.Models.EntityFramework.Makale>
+
+<div>
+    <div class="fh5co_heading fh5co_heading_border_bottom py-2 mb-4">Makaleler</div>
+</div>
+
+@foreach (B403Blog.Models.EntityFramework.Makale mkl in Model)
+{
+
+
+<div class="row pb-4">
+    <div class="col-md-5">
+        <div class="fh5co_hover_news_img">
+            <div class="fh5co_news_img"><img src="@mkl.Resim.OrtaBoyut" alt="" /></div>
+            <div></div>
+        </div>
+    </div>
+    <div class="col-md-7 animate-box">
+        <a href="/Makale/DetaySingle/@mkl.MakaleId" class="fh5co_magna py-2">
+            @mkl.Baslik
+        </a> <a href="#" class="fh5co_mini_time py-3">
+            @mkl.Kullanici.Adi - @mkl.EklenmeTarihi.ToShortDateString()
+        </a>
+        <div class="fh5co_consectetur">
+           @mkl.Aciklama
+        </div>
+    </div>
+</div>
+}
