@@ -12,7 +12,7 @@ namespace B403Blog.Controllers
 {
     public class EtiketController : Controller
     {
-        BlogYazilimEntities1 db = new BlogYazilimEntities1();
+        BlogYazilimEntities2 db = new BlogYazilimEntities2();
 
 
 

@@ -17,7 +17,7 @@ namespace B403Blog.Controllers
     [Authorize]
     public class MakaleController : Controller
     {
-        BlogYazilimEntities1 db = new BlogYazilimEntities1();
+        BlogYazilimEntities2 db = new BlogYazilimEntities2();
 
 
 

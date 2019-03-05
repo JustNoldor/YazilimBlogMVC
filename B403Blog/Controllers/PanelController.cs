@@ -16,7 +16,7 @@ namespace B403Blog.Controllers
     public class PanelController : Controller
     {
 
-        BlogYazilimEntities1 db = new BlogYazilimEntities1();
+        BlogYazilimEntities2 db = new BlogYazilimEntities2();
 
 
 

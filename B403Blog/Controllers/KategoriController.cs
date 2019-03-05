@@ -12,7 +12,7 @@ namespace B403Blog.Controllers
 {
     public class KategoriController : Controller
     {
-        BlogYazilimEntities1 db = new BlogYazilimEntities1();
+        BlogYazilimEntities2 db = new BlogYazilimEntities2();
 
 
 
@@ -32,5 +32,7 @@ namespace B403Blog.Controllers
             var data = db.Makale.Where(x => x.Kategori.KategoriId == id).OrderByDescending(x=>x.EklenmeTarihi).ToList();
             return View("MakaleListeleWidget", data);
         }
+
+
     }
 }

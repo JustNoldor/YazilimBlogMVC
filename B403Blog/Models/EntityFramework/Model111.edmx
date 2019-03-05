@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="BlogYazilimModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="BlogYazilimModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="ELMAH_Error">
           <Key>
             <PropertyRef Name="ErrorId" />
@@ -113,6 +113,14 @@
           <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="version" Type="int" />
           <Property Name="definition" Type="varbinary(max)" />
+        </EntityType>
+        <EntityType Name="Ticket">
+          <Key>
+            <PropertyRef Name="TicketID" />
+          </Key>
+          <Property Name="TicketID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TicketKonu" Type="nvarchar" MaxLength="50" />
+          <Property Name="TicketAciklama" Type="nvarchar(max)" />
         </EntityType>
         <EntityType Name="YazarTakip">
           <Key>
@@ -300,6 +308,7 @@
           <EntitySet Name="Resim" EntityType="Self.Resim" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Rol" EntityType="Self.Rol" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Ticket" EntityType="Self.Ticket" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="YazarTakip" EntityType="Self.YazarTakip" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Yorum" EntityType="Self.Yorum" Schema="dbo" store:Type="Tables" />
           <AssociationSet Name="FK_Kullanici_Resim" Association="Self.FK_Kullanici_Resim">
@@ -355,8 +364,7 @@
             <End Role="Yorum" EntitySet="Yorum" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="BlogYazilimModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -640,7 +648,7 @@
           <End Role="Etiket" Type="Self.Etiket" Multiplicity="*" />
           <End Role="Makale" Type="Self.Makale" Multiplicity="*" />
         </Association>
-        <EntityContainer Name="BlogYazilimEntities1" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="BlogYazilimEntities2" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="ELMAH_Error" EntityType="Self.ELMAH_Error" />
           <EntitySet Name="Etiket" EntityType="Self.Etiket" />
           <EntitySet Name="Kategori" EntityType="Self.Kategori" />
@@ -700,13 +708,22 @@
             <End Role="Etiket" EntitySet="Etiket" />
             <End Role="Makale" EntitySet="Makale" />
           </AssociationSet>
+          <EntitySet Name="Ticket" EntityType="BlogYazilimModel.Ticket" />
         </EntityContainer>
+        <EntityType Name="Ticket">
+          <Key>
+            <PropertyRef Name="TicketID" />
+          </Key>
+          <Property Name="TicketID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TicketKonu" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="TicketAciklama" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="BlogYazilimModelStoreContainer" CdmEntityContainer="BlogYazilimEntities1">
+        <EntityContainerMapping StorageEntityContainer="BlogYazilimModelStoreContainer" CdmEntityContainer="BlogYazilimEntities2">
           <EntitySetMapping Name="ELMAH_Error">
             <EntityTypeMapping TypeName="BlogYazilimModel.ELMAH_Error">
               <MappingFragment StoreEntitySet="ELMAH_Error">
@@ -844,6 +861,15 @@
               <ScalarProperty Name="MakaleId" ColumnName="MakaleID" />
             </EndProperty>
           </AssociationSetMapping>
+          <EntitySetMapping Name="Ticket">
+            <EntityTypeMapping TypeName="BlogYazilimModel.Ticket">
+              <MappingFragment StoreEntitySet="Ticket">
+                <ScalarProperty Name="TicketAciklama" ColumnName="TicketAciklama" />
+                <ScalarProperty Name="TicketKonu" ColumnName="TicketKonu" />
+                <ScalarProperty Name="TicketID" ColumnName="TicketID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

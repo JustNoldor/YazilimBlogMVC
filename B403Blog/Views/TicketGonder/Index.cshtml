@@ -1,0 +1,48 @@
+﻿@using B403Blog.Models.EntityFramework
+
+@model IEnumerable<B403Blog.Models.EntityFramework.Ticket>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/Panel.cshtml";
+}
+@helper IcerikKisalt(string icerik)
+{
+if (icerik.Length > 50)
+{
+        @icerik.Substring(0, 50);
+    }
+    else
+    {
+        @icerik;
+    }
+}
+<h2>Ticket Listesi  </h2>
+
+
+<table class="table table-bordered">
+    <thead>
+
+        <tr>
+            <th>Ticket Adı  </th>
+            <th>Ticket Açıklaması </th>
+            <th>Oku </th>
+            <th>Sil </th>
+         </tr>
+    </thead>
+    <tbody>
+
+        @foreach (var tckt in Model)
+        {
+            <tr>
+                <td>@tckt.TicketKonu</td>
+                <td>@IcerikKisalt(tckt.TicketAciklama)</td>
+                <td> <a class="btn btn-warning" href="/PanelKategori/Guncelle/@tckt.TicketID">Güncelle</a></td>
+                <td> <a class="btn btn-danger" href="/PanelKategori/Sil/@tckt.TicketID">Sil</a></td>
+            </tr>
+        }
+    </tbody>
+
+
+
+
+</table>

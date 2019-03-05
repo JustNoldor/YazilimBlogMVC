@@ -15,7 +15,7 @@ namespace B403Blog.Controllers
     using App_Classes;
     public class HomeController : Controller
     {
-        BlogYazilimEntities1 db = new BlogYazilimEntities1();
+        BlogYazilimEntities2 db = new BlogYazilimEntities2();
 
 
         // GET: Home

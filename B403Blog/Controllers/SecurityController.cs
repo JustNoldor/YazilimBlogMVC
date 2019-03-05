@@ -14,7 +14,7 @@ namespace B403Blog.Controllers
 {
     public class SecurityController : Controller
     {
-        BlogYazilimEntities1 db = new BlogYazilimEntities1();
+        BlogYazilimEntities2 db = new BlogYazilimEntities2();
 
 
 

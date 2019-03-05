@@ -1,4 +1,5 @@
-﻿<Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.Default.props" Condition="Exists('$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.Default.props')" />
   <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.0\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.0\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
@@ -2165,15 +2166,15 @@
     <Content Include="fonts\fontawesome-webfont.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\makalesil.js" />
-    <Content Include="Models\EntityFramework\Modely.Context.tt">
+    <Content Include="Models\EntityFramework\Model111.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>Modely.edmx</DependentUpon>
-      <LastGenOutput>Modely.Context.cs</LastGenOutput>
+      <DependentUpon>Model111.edmx</DependentUpon>
+      <LastGenOutput>Model111.Context.cs</LastGenOutput>
     </Content>
-    <Content Include="Models\EntityFramework\Modely.tt">
+    <Content Include="Models\EntityFramework\Model111.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>Modely.edmx</DependentUpon>
-      <LastGenOutput>Modely.cs</LastGenOutput>
+      <DependentUpon>Model111.edmx</DependentUpon>
+      <LastGenOutput>Model111.cs</LastGenOutput>
     </Content>
     <Content Include="Scripts\bootbox.js" />
     <Content Include="Scripts\bootbox.min.js" />
@@ -2461,13 +2462,6 @@
     <Content Include="fonts\fontawesome-webfont.woff" />
     <Content Include="fonts\fontawesome-webfont.ttf" />
     <Content Include="fonts\fontawesome-webfont.eot" />
-    <EntityDeploy Include="Models\EntityFramework\Modely.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>Modely.Designer.cs</LastGenOutput>
-    </EntityDeploy>
-    <Content Include="Models\EntityFramework\Modely.edmx.diagram">
-      <DependentUpon>Modely.edmx</DependentUpon>
-    </Content>
     <Content Include="Content\News24\css\bootstrap.css.map" />
     <Content Include="Content\News24\css\style_1.css.map" />
     <Content Include="Content\News24\sass\style_1.scss" />
@@ -2532,6 +2526,13 @@
     <Content Include="Content\Loginv3\vendor\bootstrap\css\bootstrap-reboot.min.css.map" />
     <Content Include="Content\Loginv3\vendor\bootstrap\css\bootstrap.css.map" />
     <Content Include="Content\Loginv3\vendor\bootstrap\css\bootstrap.min.css.map" />
+    <EntityDeploy Include="Models\EntityFramework\Model111.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>Model111.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Models\EntityFramework\Model111.edmx.diagram">
+      <DependentUpon>Model111.edmx</DependentUpon>
+    </Content>
     <None Include="Scripts\jquery-3.0.0-vsdoc.js" />
     <Content Include="Scripts\jquery-3.0.0.js" />
     <Content Include="Scripts\jquery-3.0.0.min.js" />
@@ -2620,56 +2621,61 @@
     <Compile Include="Controllers\PanelKategoriController.cs" />
     <Compile Include="Controllers\PanelUyelerController.cs" />
     <Compile Include="Controllers\SecurityController.cs" />
+    <Compile Include="Controllers\TicketGonderController.cs" />
+    <Compile Include="Controllers\YazarController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\EntityFramework\ELMAH_Error.cs">
-      <DependentUpon>Modely.tt</DependentUpon>
+      <DependentUpon>Model111.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\EntityFramework\Etiket.cs">
-      <DependentUpon>Modely.tt</DependentUpon>
+      <DependentUpon>Model111.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\EntityFramework\Kategori.cs">
-      <DependentUpon>Modely.tt</DependentUpon>
+      <DependentUpon>Model111.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\EntityFramework\Kullanici.cs">
-      <DependentUpon>Modely.tt</DependentUpon>
+      <DependentUpon>Model111.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\EntityFramework\KullaniciRol.cs">
-      <DependentUpon>Modely.tt</DependentUpon>
+      <DependentUpon>Model111.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\EntityFramework\Makale.cs">
-      <DependentUpon>Modely.tt</DependentUpon>
+      <DependentUpon>Model111.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\EntityFramework\Modely.Context.cs">
+    <Compile Include="Models\EntityFramework\Model111.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>Modely.Context.tt</DependentUpon>
+      <DependentUpon>Model111.Context.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\EntityFramework\Modely.cs">
+    <Compile Include="Models\EntityFramework\Model111.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>Modely.tt</DependentUpon>
+      <DependentUpon>Model111.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\EntityFramework\Modely.Designer.cs">
+    <Compile Include="Models\EntityFramework\Model111.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>Modely.edmx</DependentUpon>
+      <DependentUpon>Model111.edmx</DependentUpon>
     </Compile>
     <Compile Include="Models\EntityFramework\Resim.cs">
-      <DependentUpon>Modely.tt</DependentUpon>
+      <DependentUpon>Model111.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\EntityFramework\Rol.cs">
-      <DependentUpon>Modely.tt</DependentUpon>
+      <DependentUpon>Model111.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\EntityFramework\sysdiagrams.cs">
-      <DependentUpon>Modely.tt</DependentUpon>
+      <DependentUpon>Model111.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\EntityFramework\Ticket.cs">
+      <DependentUpon>Model111.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\EntityFramework\YazarTakip.cs">
-      <DependentUpon>Modely.tt</DependentUpon>
+      <DependentUpon>Model111.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\EntityFramework\Yorum.cs">
-      <DependentUpon>Modely.tt</DependentUpon>
+      <DependentUpon>Model111.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Views\Security\BlogRoleProvider.cs" />
@@ -2749,6 +2755,9 @@
     <Content Include="Views\Makale\DetaySingle.cshtml" />
     <Content Include="Views\Home\AnaPost.cshtml" />
     <Content Include="Views\Home\AnaPostOne.cshtml" />
+    <Content Include="Views\Yazar\Index.cshtml" />
+    <Content Include="Views\TicketGonder\TicketGonderEkle.cshtml" />
+    <Content Include="Views\TicketGonder\Index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

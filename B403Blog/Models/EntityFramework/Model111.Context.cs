@@ -13,10 +13,10 @@ namespace B403Blog.Models.EntityFramework
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class BlogYazilimEntities1 : DbContext
+    public partial class BlogYazilimEntities2 : DbContext
     {
-        public BlogYazilimEntities1()
-            : base("name=BlogYazilimEntities1")
+        public BlogYazilimEntities2()
+            : base("name=BlogYazilimEntities2")
         {
         }
     
@@ -36,5 +36,6 @@ namespace B403Blog.Models.EntityFramework
         public virtual DbSet<sysdiagrams> sysdiagrams { get; set; }
         public virtual DbSet<YazarTakip> YazarTakip { get; set; }
         public virtual DbSet<Yorum> Yorum { get; set; }
+        public virtual DbSet<Ticket> Ticket { get; set; }
     }
 }

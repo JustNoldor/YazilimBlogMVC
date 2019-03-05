@@ -12,7 +12,7 @@ namespace B403Blog.Controllers
     public class PanelUyelerController : Controller
     {
         // Veritabanı Bağlantısı
-        BlogYazilimEntities1 db = new BlogYazilimEntities1();
+        BlogYazilimEntities2 db = new BlogYazilimEntities2();
 
 
 

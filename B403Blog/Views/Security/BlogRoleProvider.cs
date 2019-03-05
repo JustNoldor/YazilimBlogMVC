@@ -9,7 +9,12 @@ namespace B403Blog.Views.Security
 {
     public class BlogRoleProvider : RoleProvider
     {
-        public override string ApplicationName { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+        public override string ApplicationName
+        {
+            get {throw new NotImplementedException(); }
+
+            set { throw new NotImplementedException(); }
+        }
 
         public override void AddUsersToRoles(string[] usernames, string[] roleNames)
         {
@@ -38,7 +43,7 @@ namespace B403Blog.Views.Security
 
         public override string[] GetRolesForUser(string username)
         {
-            BlogYazilimEntities1 db = new BlogYazilimEntities1();
+            BlogYazilimEntities2 db = new BlogYazilimEntities2();
 
             var kullanicivr = db.Kullanici.FirstOrDefault(x => x.KullaniciAdi == username);
             return new string[] { kullanicivr.Role };
