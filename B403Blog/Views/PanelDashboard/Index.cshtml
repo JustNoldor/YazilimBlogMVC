@@ -1,4 +1,4 @@
-﻿@model IEnumerable<B403Blog.Models.EntityFramework.Makale>
+﻿@model B403Blog.ViewModels.DashboardVM
 @{
 
                 ViewBag.Title = "Index";
@@ -7,13 +7,17 @@
 
 <h2>Gösterge Paneli</h2>
 
+<div class="row">
+
 <div class="col-xl-3 col-md-6 mb-4">
     <div class="card border-left-primary shadow h-100 py-2">
         <div class="card-body">
             <div class="row no-gutters align-items-center">
                 <div class="col mr-2">
-                    <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">Yazılan Makale</div>
-                    <div class="h5 mb-0 font-weight-bold text-gray-800"> @foreach (B403Blog.Models.EntityFramework.Makale mkl in Model) { mkl.Baslik.Count(); }</div>
+                    <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">Makale Sayısı</div>
+                    <div class="h5 mb-0 font-weight-bold text-gray-800">
+                   @Model.Makale.Count()
+                    </div>
                 </div>
                 <div class="col-auto">
                     <i class="fas fa-calendar fa-2x text-gray-300"></i>
@@ -22,4 +26,77 @@
         </div>
     </div>
 </div>
+
+    <div class="col-xl-3 col-md-6 mb-4">
+        <div class="card border-left-success shadow h-100 py-2">
+            <div class="card-body">
+                <div class="row no-gutters align-items-center">
+                    <div class="col mr-2">
+                        <div class="text-xs font-weight-bold text-success text-uppercase mb-1">Kategori Sayısı</div>
+                        <div class="h5 mb-0 font-weight-bold text-gray-800">@Model.Kategori.Count()</div>
+                    </div>
+                    <div class="col-auto">
+                        <i class="fas fa-dollar-sign fa-2x text-gray-300"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-xl-3 col-md-6 mb-4">
+        <div class="card border-left-warning shadow h-100 py-2">
+            <div class="card-body">
+                <div class="row no-gutters align-items-center">
+                    <div class="col mr-2">
+                        <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">Yazar Sayısı</div>
+                        <div class="h5 mb-0 font-weight-bold text-gray-800">@Model.Kullanici.Count()</div>
+                    </div>
+                    <div class="col-auto">
+                        <i class="fas fa-comments fa-2x text-gray-300"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-xl-3 col-md-6 mb-4">
+        <div class="card border-left-info shadow h-100 py-2">
+            <div class="card-body">
+                <div class="row no-gutters align-items-center">
+                    <div class="col mr-2">
+                        <div class="text-xs font-weight-bold text-info text-uppercase mb-1">Görüntülenme Sayısı</div>
+                        <div class="row no-gutters align-items-center">
+                            <div class="col-auto">
+                                <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800"> 50(Google Analytics)</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-auto">
+                        <i class="fas fa-clipboard-list fa-2x text-gray-300"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Üst Panel Bitişi-->
+@foreach (var makale in Model.MakaleSon)
+{
+<div class="card shadow mb-4">
+    <div class="card-header py-3">
+        <h6 class="m-0 font-weight-bold text-primary">Yazılan Son Makale</h6>
+    </div>
+
+    <div class="card mb-4 py-3 border-left-primary"  >
+        <div class="card-body" style="height:25px;padding-top:0px;padding-bottom:0px;">
+          <b>Makale Başlığı</b>  @makale.Baslik
+        </div>
+    </div>
+    <div class="card-body">
+       <b>Makale İçeriği</b> @makale.Aciklama
+    </div>
+</div>
+}
+
+
 

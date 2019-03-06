@@ -49,13 +49,7 @@
         @Html.Raw(Model.Icerik)
     </div>
 </div>
-@*<div class="row pb-4" style="height:400px; border: 2px solid #777;border-radius: 5px;padding:20px; margin:10px;">
-    <img src="@Model.Kullanici.Resim.OrtaBoyut" alt="imgt" class="rounded-circle" style="width:220px;height:220px;"/>
-    <h3>Author Info</h3>
-    Author: @Model.Kullanici.KullaniciAdi
-    Adı: @Model.Kullanici.Adi
-    Soyadı : @Model.Kullanici.Soyadi
-</div>*@
+
 <div class="container-fluid pb-4 pt-4 paddding" style="width:1000px;">
     <div class="col-md-8 animate-box fadeInLeft animated-fast" data-animate-effect="fadeInLeft">
         <div class="row">
@@ -80,5 +74,28 @@
         </div>
     </div>
 </div>
+<!-- /#comments -->
+<div class="divide100"></div>
+<div class="comment-form-wrapper">
+    <div id="disqus_thread"></div>
+    <script>
 
+        /**
+        *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+        *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
+        /*
+        var disqus_config = function () {
+        this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+        this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+        };
+        */
+        (function () { // DON'T EDIT BELOW THIS LINE
+            var d = document, s = d.createElement('script');
+            s.src = 'https://yazilimkosesi.disqus.com/embed.js';
+            s.setAttribute('data-timestamp', +new Date());
+            (d.head || d.body).appendChild(s);
+        })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
 

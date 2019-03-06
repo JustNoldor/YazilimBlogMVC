@@ -17,8 +17,15 @@ namespace B403Blog.Controllers
         // GET: PanelDashboard
         public ActionResult Index()
         {
-            var model = db.Makale.Count();
-            return View(model);
+            // var model = db.Makale.Count();
+            // return View();/*model*/
+            BlogYazilimEntities2 db = new BlogYazilimEntities2();
+            ViewModels.DashboardVM vm = new ViewModels.DashboardVM();
+            vm.Makale = db.Makale.ToList();
+            vm.Kategori = db.Kategori.ToList();
+            vm.Kullanici = db.Kullanici.ToList();
+            vm.MakaleSon = db.Makale.OrderByDescending(x => x.EklenmeTarihi).Take(1).ToList();
+            return View(vm);
         }
     }
 }
