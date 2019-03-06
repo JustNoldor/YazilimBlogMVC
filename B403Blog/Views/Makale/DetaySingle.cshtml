@@ -10,7 +10,7 @@
 <!------ Include the above in your HEAD tag ---------->
     <script src="~/Content/style/js/jQuery2.1.3.js"></script>
 
-    <script>
+   @* <script>
         $(document).ready(function myfunction() {
             function Goruntulendi(id) {
                 var link = "/Makale/Goruntulendi/" + id;
@@ -23,7 +23,8 @@
                 });
             }
         });
-    </script>
+    </script>*@
+
 
     <script>
         $(document).ready(function () {
@@ -35,7 +36,15 @@
             $("#silinecekpaging").css("display", "none");
         });
 </script>
-
+<script type="text/javascript">
+    $(document).ready(function(){
+        $.ajax({
+            url: '/Makale/OkunmaArttir/',
+            data:{Makaleid: @Model.MakaleId},
+            type:'GET',
+        });
+    })
+</script>
     
 }
 

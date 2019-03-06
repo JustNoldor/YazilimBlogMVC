@@ -39,7 +39,7 @@ namespace B403Blog.Controllers
         
         public PartialViewResult PopulerMakalelerWidget()
         {
-            var model = db.Makale.OrderByDescending(x => x.EklenmeTarihi).Take(3).ToList();
+            var model = db.Makale.OrderByDescending(x => x.GoruntulenmeSayisi).Take(3).ToList();
             return PartialView(model);
         }
 

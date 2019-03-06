@@ -14,7 +14,6 @@ namespace B403Blog.Controllers
     using Models;
     using System.Drawing;
 
-    [Authorize]
     public class MakaleController : Controller
     {
         BlogYazilimEntities2 db = new BlogYazilimEntities2();
@@ -42,7 +41,14 @@ namespace B403Blog.Controllers
             var data = db.Makale.FirstOrDefault(x => x.MakaleId == id);
             return View(data);
         }
-
+        [AllowAnonymous]
+        public ActionResult OkunmaArttir(int Makaleid)
+        {
+            var makale = db.Makale.Where(m => m.MakaleId == Makaleid).SingleOrDefault();
+            makale.GoruntulenmeSayisi += 1;
+            db.SaveChanges();
+            return View();
+        }
 
 
 

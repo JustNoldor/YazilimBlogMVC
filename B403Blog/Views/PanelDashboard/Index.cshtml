@@ -84,18 +84,23 @@
 {
 <div class="card shadow mb-4">
     <div class="card-header py-3">
-        <h6 class="m-0 font-weight-bold text-primary">Yazılan Son Makale</h6>
+        <h6 class="m-0 font-weight-bold text-primary">Yazılan Son Makale (@makale.EklenmeTarihi.ToShortDateString())</h6>
     </div>
 
     <div class="card mb-4 py-3 border-left-primary"  >
         <div class="card-body" style="height:25px;padding-top:0px;padding-bottom:0px;">
-          <b>Makale Başlığı</b>  @makale.Baslik
+          <b>Makale Başlığı : </b>  @makale.Baslik
         </div>
     </div>
-    <div class="card-body">
-       <b>Makale İçeriği</b> @makale.Aciklama
+    <div class="card-body" style="padding-top:5px;margin-top:5px !important;">
+       <b>Makale İçeriği : </b> @makale.Aciklama
     </div>
 </div>
+}
+
+@{
+    var GrafikCiz = new Chart(500, 500);
+    GrafikCiz.AddTitle("Gençay Yıldız Grafik").AddLegend("Gençay Yıldız").AddSeries("Değerler", chartType: "Bar", xValue: new[] { "Ahmet", "Necati", "Mustafa", "Gençay" }, yValues: new[] { "4", "6", "1", "23" }).Write(format: "png");
 }
 
 
