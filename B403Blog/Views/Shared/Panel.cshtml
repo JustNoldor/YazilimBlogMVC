@@ -105,7 +105,7 @@
             </li>
             <!-- Divider -->
 
-            @if (User.IsInRole("Admin"))
+            @if (User.IsInRole("Admin") || User.IsInRole("2"))
             {
                 <hr class="sidebar-divider">
                 <div class="sidebar-heading">
@@ -359,7 +359,6 @@
     <link rel="stylesheet" type="text/css" href="http://ajax.aspnetcdn.com/ajax/jquery.dataTables/1.9.4/css/jquery.dataTables.css" />
 
     <script src="http://ajax.aspnetcdn.com/ajax/jquery.dataTables/1.9.4/jquery.dataTables.min.js"></script>
-
 </body>
 </html>
 

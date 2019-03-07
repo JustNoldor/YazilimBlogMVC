@@ -21,6 +21,7 @@ namespace B403Blog.Controllers
         {
             var model = db.Kullanici.ToList();
             return View(model);
+          
         }
 
         public ActionResult Guncelle(int id)
@@ -68,16 +69,19 @@ namespace B403Blog.Controllers
             klnc.KullaniciId = roller.KullaniciID;
             asılrol.RollID = roller.RolID;
 
+            
+
+
   
 
             klnc.KayitTarihi = DateTime.Now;
+
             db.Kullanici.Add(klnc);
             db.KullaniciRol.Add(roller);
-           
             db.Rol.Add(asılrol);
 
             db.SaveChanges();
-            return RedirectToAction("Index", "Panel");
+            return RedirectToAction("Index", "PanelUyeler");
 
         }
     }

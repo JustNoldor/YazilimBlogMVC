@@ -416,7 +416,7 @@
           <Property Name="KayitTarihi" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="ResimID" Type="Int32" />
           <Property Name="Yazar" Type="Boolean" />
-          <Property Name="Role" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Role" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
           <Property Name="Aktif" Type="Boolean" />
           <NavigationProperty Name="Resim" Relationship="Self.FK_Kullanici_Resim" FromRole="Kullanici" ToRole="Resim" />
           <NavigationProperty Name="KullaniciRol" Relationship="Self.FK_KullaniciRol_Kullanici" FromRole="Kullanici" ToRole="KullaniciRol" />

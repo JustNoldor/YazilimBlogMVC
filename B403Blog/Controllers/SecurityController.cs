@@ -35,7 +35,7 @@ namespace B403Blog.Controllers
             {
 
                 FormsAuthentication.SetAuthCookie(kullaniciInDb.KullaniciAdi, false);
-                return RedirectToAction("Index", "Panel");
+                return RedirectToAction("Index", "PanelDashboard");
             }
             else
             {

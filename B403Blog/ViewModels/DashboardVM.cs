@@ -14,6 +14,7 @@ namespace B403Blog.ViewModels
         public IEnumerable<B403Blog.Models.EntityFramework.Kategori> Kategori { get; set; }
         public IEnumerable<B403Blog.Models.EntityFramework.Kullanici> Kullanici { get; set; }
         public IEnumerable<B403Blog.Models.EntityFramework.Makale> MakaleSon { get; set; }
+        public IEnumerable<B403Blog.Models.EntityFramework.Makale> MakaleGoruntulenme { get; set; }
 
 
     }

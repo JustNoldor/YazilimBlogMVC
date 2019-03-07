@@ -67,7 +67,7 @@
                         <div class="text-xs font-weight-bold text-info text-uppercase mb-1">Görüntülenme Sayısı</div>
                         <div class="row no-gutters align-items-center">
                             <div class="col-auto">
-                                <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800"> 50(Google Analytics)</div>
+                                <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800">@Model.MakaleGoruntulenme.Sum(x => x.GoruntulenmeSayisi)</div>
                             </div>
                         </div>
                     </div>
@@ -98,10 +98,7 @@
 </div>
 }
 
-@{
-    var GrafikCiz = new Chart(500, 500);
-    GrafikCiz.AddTitle("Gençay Yıldız Grafik").AddLegend("Gençay Yıldız").AddSeries("Değerler", chartType: "Bar", xValue: new[] { "Ahmet", "Necati", "Mustafa", "Gençay" }, yValues: new[] { "4", "6", "1", "23" }).Write(format: "png");
-}
+
 
 
 

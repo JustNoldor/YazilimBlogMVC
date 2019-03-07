@@ -17,11 +17,12 @@ namespace B403Blog.Controllers
             var model = db.Ticket.ToList();
             return View(model);
         }
+
         public ActionResult TicketGonderEkle()
         {
-
             return View();
         }
+
         [HttpPost]
         public ActionResult Ekle(Ticket tckt)
         {

@@ -73,9 +73,11 @@
                     <div class="col-md-8 col-xs-12 col-sm-6 col-lg-8">
                         <div class="container">
                             <h2>@Model.Kullanici.KullaniciAdi</h2>
-                            <p>an   <b> @Model.Kullanici.Role</b></p>
-                        </div>
-                        <div class="col-sm-5 col-xs-6 tital ">Date Of Joining: 15 Jun 2016</div>
+                            
+                             an <p><b> Yazar </b></p>
+
+                            </div>
+                        <div class="col-sm-5 col-xs-6 tital ">Katılma Tarihi: @Model.Kullanici.KayitTarihi.ToShortDateString()</div>
                         <div class="col-sm-5 col-xs-6 tital "> <a href="/Yazar/Index/@Model.YazarID">Diğer Yazıları </a> </div>
                     </div>
                 </div>

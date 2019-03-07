@@ -20,7 +20,6 @@ namespace B403Blog.Controllers
 
         // GET: Home
 
-
         public ActionResult Index()
         {
             return View();

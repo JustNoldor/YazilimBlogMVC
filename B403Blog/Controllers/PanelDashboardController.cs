@@ -1,4 +1,5 @@
 ﻿using B403Blog.Models.EntityFramework;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -25,7 +26,9 @@ namespace B403Blog.Controllers
             vm.Kategori = db.Kategori.ToList();
             vm.Kullanici = db.Kullanici.ToList();
             vm.MakaleSon = db.Makale.OrderByDescending(x => x.EklenmeTarihi).Take(1).ToList();
+            vm.MakaleGoruntulenme = db.Makale.OrderByDescending(x => x.GoruntulenmeSayisi).ToList();
             return View(vm);
         }
+
     }
 }

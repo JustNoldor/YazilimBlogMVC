@@ -5,16 +5,18 @@
     <div class="col-md-6 col-12 paddding animate-box fadeIn animated-fast" data-animate-effect="fadeIn">
         <div class="fh5co_suceefh5co_height">
             <img src="@makale.Resim.BuyukBoyut" alt="img">
-            <div class="fh5co_suceefh5co_height_position_absolute"></div>
-            <div class="fh5co_suceefh5co_height_position_absolute_font">
-                <div class="">
-                    <a href="#" class="color_fff">
-                        <i class="fa fa-clock-o"></i>
-                        @makale.EklenmeTarihi.ToShortDateString()
-                    </a>
+            <a href="/Makale/DetaySingle/@makale.MakaleId">
+                <div class="fh5co_suceefh5co_height_position_absolute"></div>
+                </a>
+                <div class="fh5co_suceefh5co_height_position_absolute_font">
+                    <div class="">
+                        <a href="#" class="color_fff">
+                            <i class="fa fa-clock-o"></i>
+                            @makale.EklenmeTarihi.ToShortDateString()
+                        </a>
+                    </div>
+                    <div class=""><a href="/Makale/DetaySingle/@makale.MakaleId" class="fh5co_good_font"> @makale.Baslik </a></div>
                 </div>
-                <div class=""><a href="/Makale/DetaySingle/@makale.MakaleId" class="fh5co_good_font"> @makale.Baslik </a></div>
-            </div>
-        </div>
+</div>
     </div>
 }
