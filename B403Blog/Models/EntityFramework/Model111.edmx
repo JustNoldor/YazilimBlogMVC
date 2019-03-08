@@ -119,8 +119,10 @@
             <PropertyRef Name="TicketID" />
           </Key>
           <Property Name="TicketID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="TicketKonu" Type="nvarchar" MaxLength="50" />
-          <Property Name="TicketAciklama" Type="nvarchar(max)" />
+          <Property Name="TicketKonu" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="TicketAciklama" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="GonderenId" Type="int" Nullable="false" />
+          <Property Name="GonderenAdi" Type="nvarchar" MaxLength="50" Nullable="false" />
         </EntityType>
         <EntityType Name="YazarTakip">
           <Key>
@@ -715,8 +717,10 @@
             <PropertyRef Name="TicketID" />
           </Key>
           <Property Name="TicketID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="TicketKonu" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="TicketAciklama" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="TicketKonu" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="TicketAciklama" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="GonderenId" Type="Int32" Nullable="false" />
+          <Property Name="GonderenAdi" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
         </EntityType>
       </Schema>
     </edmx:ConceptualModels>
@@ -864,6 +868,8 @@
           <EntitySetMapping Name="Ticket">
             <EntityTypeMapping TypeName="BlogYazilimModel.Ticket">
               <MappingFragment StoreEntitySet="Ticket">
+                <ScalarProperty Name="GonderenAdi" ColumnName="GonderenAdi" />
+                <ScalarProperty Name="GonderenId" ColumnName="GonderenId" />
                 <ScalarProperty Name="TicketAciklama" ColumnName="TicketAciklama" />
                 <ScalarProperty Name="TicketKonu" ColumnName="TicketKonu" />
                 <ScalarProperty Name="TicketID" ColumnName="TicketID" />

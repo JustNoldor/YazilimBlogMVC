@@ -16,33 +16,43 @@ if (icerik.Length > 50)
         @icerik;
     }
 }
-<h2>Ticket Listesi  </h2>
+<div class="card shadow mb-4">
+    <div class="card-header py-3">
+        <h4 class="m-0 font-weight-bold text-primary">Ticket Listesi</h4>
+    </div>
+    <div class="card-body">
+        <div class="table-responsive">
 
 
-<table class="table table-bordered">
-    <thead>
+            <table class="table table-bordered">
+                <thead>
 
-        <tr>
-            <th>Ticket Adı  </th>
-            <th>Ticket Açıklaması </th>
-            <th>Oku </th>
-            <th>Sil </th>
-         </tr>
-    </thead>
-    <tbody>
+                    <tr>
+                        <th>Ticket Adı  </th>
+                        <th>Ticket Açıklaması </th>
+                        <th>Gönderen </th>
+                        <th>Oku </th>
+                        <th>Sil </th>
+                    </tr>
+                </thead>
+                <tbody>
 
-        @foreach (var tckt in Model)
-        {
-            <tr>
-                <td>@tckt.TicketKonu</td>
-                <td>@IcerikKisalt(tckt.TicketAciklama)</td>
-                <td> <a class="btn btn-warning" href="/PanelKategori/Guncelle/@tckt.TicketID">Güncelle</a></td>
-                <td> <a class="btn btn-danger" href="/PanelKategori/Sil/@tckt.TicketID">Sil</a></td>
-            </tr>
-        }
-    </tbody>
+                    @foreach (var tckt in Model)
+                    {
+                        <tr>
+                            <td>@tckt.TicketKonu</td>
+                            <td>@IcerikKisalt(tckt.TicketAciklama)...</td>
+                            <td>@tckt.GonderenAdi</td>
+                            <td> <a class="btn btn-warning" href="/PanelKategori/Guncelle/@tckt.TicketID">Oku</a></td>
+                            <td> <a class="btn btn-danger" href="/PanelKategori/Sil/@tckt.TicketID">Sil</a></td>
+                        </tr>
+                    }
+                </tbody>
 
 
 
 
-</table>
+            </table>
+</div>
+</div>
+</div>

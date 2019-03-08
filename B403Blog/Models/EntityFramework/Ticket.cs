@@ -17,5 +17,7 @@ namespace B403Blog.Models.EntityFramework
         public int TicketID { get; set; }
         public string TicketKonu { get; set; }
         public string TicketAciklama { get; set; }
+        public int GonderenId { get; set; }
+        public string GonderenAdi { get; set; }
     }
 }

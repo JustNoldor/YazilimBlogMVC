@@ -6,48 +6,56 @@
     Layout = "~/Views/Shared/Panel.cshtml";
 }
 
-<h2>Üyeler Listesi   @Html.ActionLink("Yeni Üye", "UyeEkle", null, new { @class = "btn btn-success" })</h2>
 
-<table class="table table-bordered">
-    <thead>
+<div class="card shadow mb-4">
+    <div class="card-header py-3">
+        <h4 class="m-0 font-weight-bold text-primary"> Üyeler Listesi   @Html.ActionLink("Yeni Üye", "UyeEkle", null, new { @class = "btn btn-success" })</h4>
+    </div>
+    <div class="card-body">
+        <div class="table-responsive">
+            <table class="table table-bordered">
+                <thead>
 
-        <tr>
+                    <tr>
 
-            <th>Kullanıcı Adı</th>
+                        <th>Kullanıcı Adı</th>
 
-            <th>Mail Adresi</th>
-            <th>Kayıt Tarihi</th>
-            <th>Rolü</th>
-            <th>Güncelle</th>
-            <th>Sil</th>
-
-
-
-
-        </tr>
-    </thead>
-    <tbody>
-
-        @foreach (B403Blog.Models.EntityFramework.Kullanici user in Model)
-        {
-            <tr>
-                <td>@user.Adi</td>
-                <td>@user.MailAdres</td>
-                <td>@user.KayitTarihi</td>
-                <td>
-                    @user.Role
-                    
-                </td>
-
-
-                <td> @Html.ActionLink("Güncelle", "Guncelle", new { id = user.KullaniciId }, new { @class = "btn btn-warning" }) </td>
-                <td> <a class="btn btn-danger" href="/Panel/Sil/@user.KullaniciId">Sil</a></td>
-            </tr>
-        }
-    </tbody>
+                        <th>Mail Adresi</th>
+                        <th>Kayıt Tarihi</th>
+                        <th>Rolü</th>
+                        <th>Güncelle</th>
+                        <th>Sil</th>
 
 
 
 
-</table>
+                    </tr>
+                </thead>
+                <tbody>
 
+                    @foreach (B403Blog.Models.EntityFramework.Kullanici user in Model)
+                    {
+                        <tr>
+                            <td>@user.Adi</td>
+                            <td>@user.MailAdres</td>
+                            <td>@user.KayitTarihi</td>
+                            <td>
+                                @user.Role
+
+                            </td>
+
+
+                            <td> @Html.ActionLink("Güncelle", "Guncelle", new { id = user.KullaniciId }, new { @class = "btn btn-warning" }) </td>
+                            <td> <a class="btn btn-danger" href="/Panel/Sil/@user.KullaniciId">Sil</a></td>
+                        </tr>
+                    }
+                </tbody>
+
+
+
+
+            </table>
+
+            </div>
+</div>
+</div>

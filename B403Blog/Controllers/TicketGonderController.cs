@@ -26,7 +26,13 @@ namespace B403Blog.Controllers
         [HttpPost]
         public ActionResult Ekle(Ticket tckt)
         {
+            int yzrId = db.Kullanici.FirstOrDefault(x => x.KullaniciAdi == User.Identity.Name).KullaniciId;
+            tckt.GonderenId = yzrId;
+            db.SaveChanges();
+            string gndrnadi = db.Kullanici.FirstOrDefault(x => x.KullaniciId == tckt.GonderenId).KullaniciAdi;
 
+           
+            tckt.GonderenAdi = gndrnadi;
             db.Ticket.Add(tckt);
             db.SaveChanges();
             return RedirectToAction("Index", "Panel");

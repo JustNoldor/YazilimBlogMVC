@@ -2,24 +2,30 @@
     ViewBag.Title = "TicketGonderEkle";
     Layout = "~/Views/Shared/Panel.cshtml";
 }
+<div class="card shadow mb-4">
+    <div class="card-header py-3">
+        <h4 class="m-0 font-weight-bold text-primary">Ticket Listesi</h4>
+    </div>
+    <div class="card-body">
+        <form action="/TicketGonder/Ekle" method="post" enctype="multipart/form-data">
+            <table class="table table-bordered">
+                <tr>
+                    <th>Ticket Adı : </th>
+                    <td> <input type="text" name="TicketKonu" class="form-control" value="" /></td>
+                </tr>
+                <tr>
+                    <th>Ticket: </th>
+                    <td>  <textarea type="text" class="form-control" aria-label="With textarea" style="height:400px;" name="TicketAciklama" value=""></textarea> </td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <th>
+                        <input type="submit" name="name" class="btn btn-success" style="width: 100%;padding:25px;" value="Ticket Gönder" />
+                    </th>
+                </tr>
+            </table>
 
-<form action="/TicketGonder/Ekle" method="post" enctype="multipart/form-data">
-    <table class="table table-bordered">
-        <tr>
-            <th>Ticket Adı : </th>
-            <td> <input type="text" name="TicketKonu" class="form-control" value="" /></td>
-        </tr>
-        <tr>
-            <th>Ticket: </th>
-            <td>  <textarea type="text" class="form-control" aria-label="With textarea" style="height:400px;" name="TicketAciklama" value=""></textarea> </td>
-        </tr>
-        <tr>
-            <td></td>
-            <th>
-                <input type="submit" name="name" class="btn btn-success" style="width: 100%;padding:25px;" value="Ticket Gönder" />
-            </th>
-        </tr>
-    </table>
-
-</form>
+        </form>
+        </div>
+    </div>
 
