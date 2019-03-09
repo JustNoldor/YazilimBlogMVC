@@ -1,0 +1,62 @@
+﻿@model B403Blog.Models.EntityFramework.Kullanici
+@{
+    ViewBag.Title = "ProfileForm";
+    Layout = "~/Views/Shared/Panel.cshtml";
+}
+
+<div class="alert alert-warning alert-dismissible fade show" role="alert">
+    <strong>Merhaba @User.Identity.Name!</strong> Bilgilerini güncelledikten sonra giriş sayfasına yeniden yönlendirileceksin.
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+    </button>
+</div>
+<script>
+    $('.alert').alert()
+</script>
+<div class="card shadow mb-4">
+    <div class="card-header py-3">
+        <h4 class="m-0 font-weight-bold text-primary">Hesap Güncelleme Formu  </h4> <td>
+    </div>
+    <div class="card-body">
+        <div class="table-responsive">
+            @using (Html.BeginForm("Guncelle", "PanelProfile", FormMethod.Post, new { enctype = "multipart/form-data" }))
+            {
+                @Html.AntiForgeryToken()
+
+                <div class="form-group">
+                    @Html.Label("Kullanıcı Adı")
+                    @Html.TextBoxFor(m => m.KullaniciAdi, new { @class = "form-control" })
+                </div>
+
+                <div class="form-group">
+                    @Html.Label("Parola")
+                    @Html.TextBoxFor(m => m.Parola, new { @class = "form-control" })
+                </div>
+                <div class="form-group">
+                    @Html.Label("Ad")
+                    @Html.TextBoxFor(m => m.Adi, new { @class = "form-control" })
+                </div>
+                <div class="form-group">
+                    @Html.Label("Soyad")
+                    @Html.TextBoxFor(m => m.Soyadi, new { @class = "form-control" })
+                </div>
+                <div class="form-group">
+                    @Html.Label("Mail")
+                    @Html.TextBoxFor(m => m.MailAdres, new { @class = "form-control" })
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(m => m.ResimID, "Resim")
+                    <input type="file" name="resim" id="resim" value="" accept=".jpg,.jpeg,.png" class="form-control" />
+                    @Html.ValidationMessageFor(m => m.ResimID, "", new { @class = "text-danger" })
+                </div>
+
+
+
+                <button type="submit" onclick="/Security/Logout" class="btn btn-success" style="width:100%"> Güncelle </button>
+                //<input type="submit" action="/Security/Logout" method="post" class="btn btn-success" value="Güncelle" />
+               //<div class="form-group" style="width:100%"><form action="/Security/Logout" method="post"><button type="submit" class="btn btn-success"> Güncelle </button></form></div> 
+            }
+
+</div>
+</div>
+</div>

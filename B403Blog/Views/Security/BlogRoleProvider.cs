@@ -44,9 +44,10 @@ namespace B403Blog.Views.Security
         public override string[] GetRolesForUser(string username)
         {
             BlogYazilimEntities2 db = new BlogYazilimEntities2();
-
+            
             var kullanicivr = db.Kullanici.FirstOrDefault(x => x.KullaniciAdi == username);
             return new string[] { kullanicivr.Role };
+
         }
 
         public override string[] GetUsersInRole(string roleName)

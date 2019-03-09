@@ -1,0 +1,63 @@
+﻿@model B403Blog.Models.EntityFramework.Kullanici
+
+@{
+    ViewBag.Title = "ProfilGor";
+    Layout = "~/Views/Shared/Panel.cshtml";
+}
+<div class="alert alert-warning alert-dismissible fade show" role="alert">
+    <strong>Holy guacamole!</strong> You should check in on some of those fields below.
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+    </button>
+</div>
+<script>
+    $('.alert').alert()
+</script>
+<div class="card shadow mb-4">
+    <div class="card-header py-3">
+        <h4 class="m-0 font-weight-bold text-primary">Hesap Bilgilerim @Html.ActionLink("Güncelle", "Guncelle", new { id = Model.KullaniciId }, new { @class = "btn btn-primary" }) </h4> <td> 
+    </div>
+    <div class="card-body">
+        <div class="table-responsive">
+            <table class="table table-bordered">
+
+                <tr>
+                    <th>Kullanıcı Adı  </th>
+                    <td>@Model.KullaniciAdi </td>
+                </tr>
+                <tr>
+                    <th>Parola  </th>
+                    <td class="hidetext" style="-webkit-text-security: disc;">@Model.Parola </td>
+                </tr>
+                <tr>
+                    <th>Adı </th>
+                    <td>@Model.Adi </td>
+                </tr>
+
+                <tr>
+                    <th>Soyadı </th>
+                    <td>@Model.Soyadi </td>
+                </tr>
+                <tr>
+                    <th>Mail </th>
+                    <td>@Model.MailAdres </td>
+                </tr>
+                <tr>
+                    <th>Katılma Tarihi </th>
+                    <td>@Model.KayitTarihi.ToShortDateString() </td>
+                </tr>
+                <tr>
+                    <th>Profil Resmim </th>
+                    <td>
+                        <img alt="User Pic" src="@Model.Resim.OrtaBoyut" id="profile-image1" class="img-circle img-responsive" height="200" width="200">
+                    </td>
+                </tr>
+
+
+
+
+            </table>
+            </div>
+        </div>
+    </div>
+
