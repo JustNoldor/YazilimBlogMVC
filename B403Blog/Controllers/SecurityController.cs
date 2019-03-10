@@ -23,6 +23,8 @@ namespace B403Blog.Controllers
         [AllowAnonymous]
         public ActionResult Login()
         {
+            ViewBag.Message = TempData["Message"];
+
             return View();
         }
 
@@ -33,7 +35,6 @@ namespace B403Blog.Controllers
             var kullaniciInDb = db.Kullanici.FirstOrDefault(x => x.KullaniciAdi == kullanici.KullaniciAdi && x.Parola == kullanici.Parola);
             if (kullaniciInDb != null)
             {
-
                 FormsAuthentication.SetAuthCookie(kullaniciInDb.KullaniciAdi, false);
                 return RedirectToAction("Index", "PanelDashboard");
             }
