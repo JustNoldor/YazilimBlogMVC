@@ -56,6 +56,7 @@ namespace B403Blog.Controllers
             }
 
 
+
         }
 
         public ActionResult Guncelle(int id)

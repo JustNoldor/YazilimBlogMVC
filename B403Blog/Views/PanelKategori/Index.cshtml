@@ -9,13 +9,13 @@
 
 @if (ViewBag.msg != null)
 {
-    <script>
-        $(".").click(function () {
-            alert(@ViewBag);
-        });
+    <script type="text/javascript">
+            window.onload = function () {
+                alert("@ViewBag.msg");
+            };
     </script>
-
 }
+
 
 <div class="card shadow mb-4">
     <div class="card-header py-3">
@@ -44,7 +44,7 @@
                             <td>@ktgr.Aciklama</td>
                             <td> @ktgr.Makale.Count</td>
                             <td> <a class="btn btn-warning" href="/PanelKategori/Guncelle/@ktgr.KategoriId">Güncelle</a></td>
-                            <td> <a class="btn btn-danger" href="/PanelKategori/Sil/@ktgr.KategoriId">Sil</a></td>
+                            <td> <a class="btn btn-danger" id="silinecek" href="/PanelKategori/Sil/@ktgr.KategoriId">Sil</a></td>
                         </tr>
                     }
                 </tbody>
