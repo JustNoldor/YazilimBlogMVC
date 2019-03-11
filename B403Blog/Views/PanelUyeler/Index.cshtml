@@ -11,6 +11,27 @@
     });
 </script>
 
+<script>
+    $(function () {
+        $("#tblUyeler").on("click", ".btnUyeSil", function () {
+            var btn = $(this);
+            bootbox.confirm("Üyeyi Silmek istediğinize emin misiniz?", function (result) {
+                if (result) {
+                    var id = btn.data("id");
+                    $.ajax({
+                        type: "GET",
+                        url: "/PanelUyeler/Sil/" + id,
+                        success: function () {
+                            btn.parent().parent().remove()
+                        }
+
+                    });
+                }
+            })
+        });
+    });
+</script>
+
 <div class="card shadow mb-4">
     <div class="card-header py-3">
         <h4 class="m-0 font-weight-bold text-primary"> Üyeler Listesi   @Html.ActionLink("Yeni Üye", "UyeEkle", null, new { @class = "btn btn-success" })</h4>
@@ -50,7 +71,7 @@
 
 
                             <td> @Html.ActionLink("Güncelle", "Guncelle", new { id = user.KullaniciId }, new { @class = "btn btn-warning" }) </td>
-                            <td> <a class="btn btn-danger" href="/Panel/Sil/@user.KullaniciId">Sil</a></td>
+                            <td> <a class="btn btn-danger btnUyeSil" data-id="@user.KullaniciId">Sil</a></td>
                         </tr>
                     }
                 </tbody>

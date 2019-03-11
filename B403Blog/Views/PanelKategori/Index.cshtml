@@ -16,6 +16,30 @@
 }
 
 <script>
+    $(function () {
+        $("#tblKategoriler").on("click", ".btnKategoriSil", function () {
+            var btn = $(this);
+            bootbox.confirm("Kategoriyi Silmek istediğinize emin misiniz?", function (result) {
+                if (result) {
+                    var id = btn.data("id");
+                    $.ajax({
+                        type: "GET",
+                        url: "/PanelKategori/Sil/" + id,
+                        error: function (response) {
+                            alert("Hata!");
+                        },
+                        success: function () {
+                            btn.parent().parent().remove()
+                        }
+
+                    });
+                }
+            })
+        });
+    });
+</script>
+
+<script>
     $(document).ready(function () {
         $('#tblKategoriler').DataTable();
     });
@@ -48,7 +72,7 @@
                             <td>@ktgr.Aciklama</td>
                             <td> @ktgr.Makale.Count</td>
                             <td> <a class="btn btn-warning" href="/PanelKategori/Guncelle/@ktgr.KategoriId">Güncelle</a></td>
-                            <td> <a class="btn btn-danger" id="silinecek" href="/PanelKategori/Sil/@ktgr.KategoriId">Sil</a></td>
+                            <td> <a class="btn btn-danger btnKategoriSil" data-id="@ktgr.KategoriId" id="silinecek">Sil</a></td>
                         </tr>
                     }
                 </tbody>

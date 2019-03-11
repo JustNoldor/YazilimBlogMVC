@@ -37,7 +37,7 @@ namespace B403Blog.Controllers
 
         public ActionResult UyeEkle()
         {
-            ViewBag.Kullanicilar = db.Rol.ToList();
+            ViewBag.Kullanicilar = db.Rol.Take(2).ToList();
 
             return View();
         }
@@ -81,6 +81,26 @@ namespace B403Blog.Controllers
             db.SaveChanges();
             return RedirectToAction("Index", "PanelUyeler");
 
+        }
+
+
+        [Authorize(Roles = "Admin,Supervisor")]
+        public ActionResult Sil(int id)
+        {
+            var silinecekklnc = db.Kullanici.Find(id);
+            if (silinecekklnc == null)
+                return HttpNotFound();
+            else
+            {
+                var silsene = db.KullaniciRol.Where(x => x.KullaniciID == id);
+                var asılsil = db.KullaniciRol.Find(silsene);
+
+                db.KullaniciRol.Remove(asılsil);
+
+                db.Kullanici.Remove(silinecekklnc);
+                db.SaveChanges();
+                return RedirectToAction("Index");
+            }
         }
     }
 }

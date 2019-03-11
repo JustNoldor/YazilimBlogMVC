@@ -55,5 +55,11 @@ namespace B403Blog.Controllers
             return PartialView(model);
         }
 
+        public PartialViewResult TicketWidget()
+        {
+            var model = db.Ticket.OrderByDescending(x => x.TicketID).Take(3).ToList();
+            return PartialView(model);
+        }
+
     }
 }
