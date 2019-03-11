@@ -5,22 +5,29 @@
     Layout = "~/Views/Shared/Panel.cshtml";
 }
 
-<h2>Kategori Güncelleme Formu</h2>
+<div class="card shadow mb-4">
+    <div class="card-header py-3">
+        <h4 class="m-0 font-weight-bold text-primary">Kategori Güncelle</h4>
+    </div>
+    <div class="card-body">
+        <div class="table-responsive">
+            @using (Html.BeginForm("Kaydet", "PanelKategori", FormMethod.Post))
+            {
+                @Html.AntiForgeryToken()
+                <div class="form-group">
+                    @Html.LabelFor(m => m.Adi)
+                    @Html.TextBoxFor(m => m.Adi, new { @class = "form-control" })
+                </div>
 
-@using (Html.BeginForm("Kaydet", "PanelKategori", FormMethod.Post))
-{
-    @Html.AntiForgeryToken()
-<div class="form-group">
-    @Html.LabelFor(m => m.Adi)
-    @Html.TextBoxFor(m => m.Adi, new { @class = "form-control" })
+                <div class="form-group">
+                    @Html.LabelFor(m => m.Aciklama)
+                    @Html.TextAreaFor(m => m.Aciklama, new { @class = "form-control" })
+                </div>
+                @Html.HiddenFor(m => m.KategoriId)
+                <button type="submit" class="btn btn-success btn-lg btn-block" style="width:200px;">Kaydet</button>
+
+            }
+
+            </div>
 </div>
-
-<div class="form-group" >
-    @Html.LabelFor(m => m.Aciklama)
-    @Html.TextAreaFor(m => m.Aciklama, new { @class = "form-control" })
 </div>
-@Html.HiddenFor(m=>m.KategoriId)
-<button type="submit" class="btn btn-success" style="width:200px;">Kaydet</button>
-
-}
-

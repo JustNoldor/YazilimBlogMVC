@@ -7,23 +7,27 @@
     Layout = "~/Views/Shared/Panel.cshtml";
 }
 
-@if (ViewBag.msg != null)
+@if (TempData["KategoriSilinemez"] != null)
 {
-    <script type="text/javascript">
-            window.onload = function () {
-                alert("@ViewBag.msg");
-            };
-    </script>
+    <a href="#page-top"></a>
+    <div class="alert alert-danger"  role="alert">
+       <b>@TempData["KategoriSilinemez"]</b> 
+    </div>
 }
 
+<script>
+    $(document).ready(function () {
+        $('#tblKategoriler').DataTable();
+    });
+</script>
 
 <div class="card shadow mb-4">
     <div class="card-header py-3">
         <h4 class="m-0 font-weight-bold text-primary">Kategori Listesi   @Html.ActionLink("Yeni Kategori", "KategoriEkle", null, new { @class = "btn btn-success" })</h4>
     </div>
     <div class="card-body">
-        <div class="table-responsive">
-            <table class="table table-bordered">
+        <div class="table-responsive" >
+            <table class="table table-bordered" id="tblKategoriler">
                 <thead>
 
                     <tr>

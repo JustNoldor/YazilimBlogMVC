@@ -16,6 +16,11 @@ if (icerik.Length > 50)
         @icerik;
     }
 }
+<script>
+    $(document).ready(function () {
+        $('#tblTicketlar').DataTable();
+    });
+</script>
 <div class="card shadow mb-4">
     <div class="card-header py-3">
         <h4 class="m-0 font-weight-bold text-primary">Ticket Listesi</h4>
@@ -24,7 +29,7 @@ if (icerik.Length > 50)
         <div class="table-responsive">
 
 
-            <table class="table table-bordered">
+            <table class="table table-bordered" id="tblTicketlar">
                 <thead>
 
                     <tr>

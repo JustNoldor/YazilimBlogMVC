@@ -64,15 +64,13 @@ namespace B403Blog.Controllers
             db.Resim.Add(rsm);
             db.SaveChanges();
 
+
             klnc.ResimID = rsm.ResimId;
 
             klnc.KullaniciId = roller.KullaniciID;
             asılrol.RollID = roller.RolID;
 
-            
 
-
-  
 
             klnc.KayitTarihi = DateTime.Now;
 

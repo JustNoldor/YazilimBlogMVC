@@ -79,7 +79,7 @@ namespace B403Blog.Controllers
                     model.MailAdres = klnc.MailAdres;
                     db.SaveChanges();
 
-                    TempData["Message"] = "Bilgileriniz Başarıyla Güncellendi!";
+                    TempData["GuncellemeBasarili"] ="Profiliniz Başarıyla Güncellendi!" ;
 
                     FormsAuthentication.SignOut();
                     return RedirectToAction("Login","Security");

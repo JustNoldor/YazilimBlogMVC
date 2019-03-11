@@ -63,7 +63,12 @@
 
                             <div class="text-center p-t-90" style="color:white;">
                                 @ViewBag.Mesaj
-                                @ViewBag.Message
+                                @if (TempData["GuncellemeBasarili"] != null)
+                                {
+                                    <div class="alert alert-success" role="alert">
+                                       <b>@TempData["GuncellemeBasarili"]</b> 
+                                    </div>
+                                }
                             </div>
 
                             <div class="text-center p-t-90">

@@ -13,61 +13,69 @@
 <script src="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.11/summernote.js"></script>
 
 
+<div class="card shadow mb-4">
+    <div class="card-header py-3">
+        <h4 class="m-0 font-weight-bold text-primary"> Makale Ekle</h4>
+    </div>
+    <div class="card-body">
+        <div class="table-responsive">
+            <form action="/Panel/Ekle" method="post" enctype="multipart/form-data">
+                <table class="table table-bordered">
+                    <tr>
+                        <th>Başlık :</th>
+                        <td> <input type="text" name="Baslik" class="form-control" value="" /></td>
+                    </tr>
+                    <tr>
+                        <th>Açıklama :</th>
+                        <td> <input type="text" name="Aciklama" class="form-control" value="300 Katakter girilebilir." /></td>
+                    </tr>
+                    <tr>
+                        <th>İçerik:</th>
+                        <td>
 
-<form action="/Panel/Ekle" method="post" enctype="multipart/form-data">
-    <table class="table table-bordered">
-        <tr>
-            <th>Başlık :</th>
-            <td> <input type="text" name="Baslik" class="form-control" value="" /></td>
-        </tr>
-        <tr>
-            <th>Açıklama :</th>
-            <td> <input type="text" name="Aciklama" class="form-control" value="300 Katakter girilebilir." /></td>
-        </tr>
-        <tr>
-            <th>İçerik:</th>
-            <td>
+                            @Html.TextAreaFor(model => model.Icerik, new { @id = "summernote", @class = "form-control", @style = "display:none;" })
+                            <script type="text/javascript">
+                                $(document).ready(function () {
+                                    $('#summernote').summernote({
+                                        height: 400,
+                                        tabsize: 2,
+                                        width: 666,
+                                    });
+                                });
+                            </script>
+                        </td>
 
-                @Html.TextAreaFor(model => model.Icerik, new { @id = "summernote", @class = "form-control", @style = "display:none;" })
-                <script type="text/javascript">
-                    $(document).ready(function () {
-                        $('#summernote').summernote({
-                            height: 400,
-                            tabsize: 2,
-                            width: 666,
-                        });
-                    });
-                </script>
-            </td>
+                    </tr>
+                    <tr>
+                        <th>Kategori:</th>
+                        <td>
+                            <div class="input-group mb-3">
+                                <select class="btn btn-outline-secondary dropdown-toggle" style="width: 100%;" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" name="KategoriID">
+                                    @foreach (B403Blog.Models.EntityFramework.Kategori item in ViewBag.Kategoriler)
+                                    {
+                                        <option value="@item.KategoriId">
+                                            @item.Adi
+                                        </option>
 
-        </tr>
-        <tr>
-            <th>Kategori:</th>
-            <td>
-                <div class="input-group mb-3">
-                    <select class="btn btn-outline-secondary dropdown-toggle" style="width: 100%;" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" name="KategoriID">
-                        @foreach (B403Blog.Models.EntityFramework.Kategori item in ViewBag.Kategoriler)
-                        {
-                            <option value="@item.KategoriId">
-                                @item.Adi
-                            </option>
+                                    }
+                                </select>
+                            </div>
+                        </td>
+                    </tr>
 
-                        }
-                    </select>
-                </div>
-            </td>
-        </tr>
+                    <tr>
+                        <th>Resim : </th>
+                        <td class="btn btn-outline-secondary" style="width: 100%;"> <input type="file" name="resim" value=" " /> </td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <th>
+                            <input type="submit" name="name" id="editorbtn" class="btn btn-success btn-lg btn-block" style="width: 100%;padding:25px;" value="Makale Ekle" />
+                        </th>
+                    </tr>
+                </table>
 
-        <tr>
-            <th>Resim : </th>
-            <td class="btn btn-outline-secondary" style="width: 100%;"> <input type="file" name="resim" value=" " /> </td>
-        </tr>
-        <tr>
-            <td></td>
-            <th>
-                <input type="submit" name="name" id="editorbtn" class="btn btn-success" style="width: 100%;padding:25px;" value="Makale Ekle" />
-            </th>
-        </tr>
-    </table>
-
-</form>
+            </form>
+        </div>
+</div>
+</div>

@@ -45,7 +45,7 @@ namespace B403Blog.Controllers
 
             if (silinecekkategori.Makale.Count>0)
             {
-                ViewBag.msg = "İşlem tamamlandı";
+                TempData["KategoriSilinemez"] = "Bu Kategoriye bağlı Makaleler bulunmaktadır!";
                 return RedirectToAction("Index");
             }
             else

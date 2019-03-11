@@ -5,7 +5,11 @@
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/Panel.cshtml";
 }
-
+<script>
+    $(document).ready(function () {
+        $('#tblUyeler').DataTable();
+    });
+</script>
 
 <div class="card shadow mb-4">
     <div class="card-header py-3">
@@ -13,7 +17,7 @@
     </div>
     <div class="card-body">
         <div class="table-responsive">
-            <table class="table table-bordered">
+            <table class="table table-bordered" id="tblUyeler">
                 <thead>
 
                     <tr>
