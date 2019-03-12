@@ -1928,6 +1928,7 @@
     <Content Include="Content\News24\css\owl.carousel.css" />
     <Content Include="Content\News24\css\owl.theme.default.css" />
     <Content Include="Content\News24\css\style_1.css" />
+    <Content Include="Content\News24\icoup.png" />
     <Content Include="Content\News24\images\10-1-1-875x500.jpg" />
     <Content Include="Content\News24\images\32-450x260.jpg" />
     <Content Include="Content\News24\images\39-324x235.jpg" />
