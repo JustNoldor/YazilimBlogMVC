@@ -1,0 +1,17 @@
+﻿@model B403Blog.Models.EntityFramework.Ticket
+
+@{
+    ViewBag.Title = "TicketOkuForm";
+    Layout = "~/Views/Shared/Panel.cshtml";
+}
+
+<div class="card shadow mb-4">
+    <div class="card-header py-3">
+        <h4 class="m-0 font-weight-bold text-primary">@Model.TicketKonu - (@Model.GonderenAdi)</h4>
+    </div>
+    <div class="card-body">
+     @Model.TicketAciklama
+
+
+        </div>
+    </div>

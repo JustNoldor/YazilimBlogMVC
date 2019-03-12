@@ -84,7 +84,7 @@ namespace B403Blog.Controllers
         }
 
 
-        [Authorize(Roles = "Admin,Supervisor")]
+
         public ActionResult Sil(int id)
         {
             var silinecekklnc = db.Kullanici.Find(id);

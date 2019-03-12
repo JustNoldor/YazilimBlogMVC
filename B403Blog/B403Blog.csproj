@@ -2773,6 +2773,8 @@
     <Content Include="Views\PanelProfile\ProfileForm.cshtml" />
     <Content Include="Views\Shared\BildirimTicket.cshtml" />
     <Content Include="Views\Home\TicketWidget.cshtml" />
+    <Content Include="Views\TicketGonder\TicketOkuForm.cshtml" />
+    <Content Include="Views\TicketGonder\TicketDetay.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

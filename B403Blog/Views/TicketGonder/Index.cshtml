@@ -17,6 +17,26 @@ if (icerik.Length > 50)
     }
 }
 <script>
+    $(function () {
+        $("#tblTicketlar").on("click", ".btnTicketSil", function () {
+            var btn = $(this);
+            bootbox.confirm("Ticket'ı Silmek istediğinize emin misiniz?", function (result) {
+                if (result) {
+                    var id = btn.data("id");
+                    $.ajax({
+                        type: "GET",
+                        url: "/TicketGonder/Sil/" + id,
+                        success: function () {
+                            btn.parent().parent().remove();
+                        }
+
+                    });
+                }
+            })
+        });
+    });
+</script>
+<script>
     $(document).ready(function () {
         $('#tblTicketlar').DataTable();
     });
@@ -48,8 +68,8 @@ if (icerik.Length > 50)
                             <td>@tckt.TicketKonu</td>
                             <td>@IcerikKisalt(tckt.TicketAciklama)...</td>
                             <td>@tckt.GonderenAdi</td>
-                            <td> <a class="btn btn-warning" href="/PanelKategori/Guncelle/@tckt.TicketID">Oku</a></td>
-                            <td> <a class="btn btn-danger" href="/PanelKategori/Sil/@tckt.TicketID">Sil</a></td>
+                            <td> <a class="btn btn-primary" href="/TicketGonder/TicketDetay/@tckt.TicketID">Oku</a></td>
+                            <td> <a class="btn btn-danger btnTicketSil"data-id="@tckt.TicketID">Sil</a></td>
                         </tr>
                     }
                 </tbody>

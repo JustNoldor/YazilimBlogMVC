@@ -38,5 +38,25 @@ namespace B403Blog.Controllers
             return RedirectToAction("Index", "Panel");
         }
 
+        [Authorize(Roles = "Admin,Supervisor")]
+        public ActionResult Sil(int id)
+        {
+            var silinecekticket = db.Ticket.Find(id);
+            if (silinecekticket == null)
+                return HttpNotFound();
+            else
+            {
+                db.Ticket.Remove(silinecekticket);
+                db.SaveChanges();
+                return RedirectToAction("Index");
+            }
+        }
+
+        public ActionResult TicketDetay(int id)
+        {
+            var data = db.Ticket.FirstOrDefault(x => x.TicketID == id);
+            return View(data);
+        }
+
     }
 }
