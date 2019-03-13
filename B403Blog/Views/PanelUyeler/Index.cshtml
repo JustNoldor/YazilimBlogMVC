@@ -5,11 +5,7 @@
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/Panel.cshtml";
 }
-<script>
-    $(document).ready(function () {
-        $('#tblUyeler').DataTable();
-    });
-</script>
+
 
 <script>
     $(function () {
@@ -31,7 +27,11 @@
         });
     });
 </script>
-
+<script>
+    $(document).ready(function () {
+        $('#tblUyeler').DataTable();
+    });
+</script>
 <div class="card shadow mb-4">
     <div class="card-header py-3">
         <h4 class="m-0 font-weight-bold text-primary"> Üyeler Listesi   @Html.ActionLink("Yeni Üye", "UyeEkle", null, new { @class = "btn btn-success" })</h4>
@@ -61,7 +61,7 @@
                     @foreach (B403Blog.Models.EntityFramework.Kullanici user in Model)
                     {
                         <tr>
-                            <td>@user.Adi</td>
+                            <td>@user.KullaniciAdi</td>
                             <td>@user.MailAdres</td>
                             <td>@user.KayitTarihi</td>
                             <td>

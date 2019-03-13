@@ -83,24 +83,29 @@ namespace B403Blog.Controllers
 
         }
 
-
-
-        public ActionResult Sil(int id)
+        [Authorize(Roles = "Admin,2")]
+        public ActionResult Sil(int id )
         {
             var silinecekklnc = db.Kullanici.Find(id);
+
+            //Kullanıcının bağlı olduğu rolü bulmak için;
+            var userrol = db.KullaniciRol.Where(x => x.KullaniciID == id).SingleOrDefault();
+
             if (silinecekklnc == null)
                 return HttpNotFound();
             else
             {
-                var silsene = db.KullaniciRol.Where(x => x.KullaniciID == id);
-                var asılsil = db.KullaniciRol.Find(silsene);
-
-                db.KullaniciRol.Remove(asılsil);
-
+                //Kullanıcının bağlı olduğu rol ve kullanıcı siliniyor.
+                db.KullaniciRol.Remove(userrol);
+                db.SaveChanges();
                 db.Kullanici.Remove(silinecekklnc);
                 db.SaveChanges();
+
                 return RedirectToAction("Index");
+
             }
-        }
+        } 
+
+
     }
 }
