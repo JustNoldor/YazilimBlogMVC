@@ -94,6 +94,8 @@ namespace B403Blog.Controllers
         {
             //Güncelle
 
+
+
             try
             {
 
@@ -101,6 +103,7 @@ namespace B403Blog.Controllers
 
                 //var model = db.Makale.Find(id);
                 var model = db.Makale.Where(m => m.MakaleId == id).SingleOrDefault();
+
 
                 ViewBag.kategoriId = new SelectList(db.Kategori, "KategoriID", "Adi");
 

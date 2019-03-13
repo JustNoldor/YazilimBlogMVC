@@ -10,6 +10,7 @@ using System.Web.Security;
 
 namespace B403Blog.Controllers
 {
+    [Authorize(Roles = "Admin,2,1")]
     public class PanelProfileController : Controller
     {
         BlogYazilimEntities2 db = new BlogYazilimEntities2();

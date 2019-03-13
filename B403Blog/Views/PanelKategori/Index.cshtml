@@ -7,13 +7,6 @@
     Layout = "~/Views/Shared/Panel.cshtml";
 }
 
-@if (TempData["KategoriSilinemez"] != null)
-{
-    <a href="#page-top"></a>
-    <div class="alert alert-danger"  role="alert">
-       <b>@TempData["KategoriSilinemez"]</b> 
-    </div>
-}
 
 <script>
     $(function () {
@@ -46,6 +39,14 @@
 </script>
 
 <div class="card shadow mb-4">
+    <div class="text-center p-t-90" style="color:white;">
+        @if (TempData["GuncellemeBasarili"] != null)
+        {
+            <div class="alert alert-success" role="alert">
+                <b>@TempData["GuncellemeBasarili"]</b>
+            </div>
+        }
+    </div>
     <div class="card-header py-3">
         <h4 class="m-0 font-weight-bold text-primary">Kategori Listesi   @Html.ActionLink("Yeni Kategori", "KategoriEkle", null, new { @class = "btn btn-success" })</h4>
     </div>

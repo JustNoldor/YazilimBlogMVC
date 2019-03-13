@@ -46,14 +46,14 @@ namespace B403Blog.Controllers
             if (silinecekkategori.Makale.Count>0)
             {
                 TempData["KategoriSilinemez"] = "Bu Kategoriye bağlı Makaleler bulunmaktadır!";
-                return RedirectToAction("Index");
             }
-            else
+            if (silinecekkategori.Makale.Count<0)
             {
                 db.Kategori.Remove(silinecekkategori);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
+            return RedirectToAction("Index");
 
 
 
