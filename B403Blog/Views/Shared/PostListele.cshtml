@@ -34,11 +34,11 @@
     </div>
 }
 
-
+<div class="row mx-0" id="silinecekpaging">
     <div class="col-12 text-center pb-4 pt-4">
         @*@Html.PagedListPager((IPagedList)Model, page => Url.Action("Index", new { page, @class = "btn_pagging" }), PagedListRenderOptions.PageNumbersOnly)
-        @Html.PagedListPager((IPagedList)Model, page => Url.Action("Index", new { page }))
-        @Html.PagedListPager((IPagedList)Model, page => Url.Action("index", new { PagedNo = page }))*@
+            @Html.PagedListPager((IPagedList)Model, page => Url.Action("Index", new { page }))
+            @Html.PagedListPager((IPagedList)Model, page => Url.Action("index", new { PagedNo = page }))*@
 
         @Html.PagedListPager(
     (IPagedList)Model,
@@ -56,4 +56,4 @@
 
 
     </div>
-
+</div>
