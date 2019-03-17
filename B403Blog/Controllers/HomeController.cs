@@ -7,6 +7,7 @@ using B403Blog.Models.EntityFramework;
 using B403Blog.Models;
 using System.Data.Entity;
 using System.Data;
+using PagedList;
 //using B403Blog.ViewModels;
 
 namespace B403Blog.Controllers
@@ -30,9 +31,11 @@ namespace B403Blog.Controllers
             return View("PostListele", data);
         }
 
-        public ActionResult MakaleListele()
+
+        //Asıl Makale Listeleme Kısmı
+        public ActionResult MakaleListele(int? page)
         {
-            var data = db.Makale.OrderByDescending(x => x.EklenmeTarihi).Skip(5).ToList();
+            var data = db.Makale.OrderByDescending(x => x.EklenmeTarihi).Skip(5).ToList().ToPagedList(page ?? 1,10);
             return View("PostListele", data);
         }
         
