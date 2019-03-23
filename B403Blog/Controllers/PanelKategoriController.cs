@@ -22,7 +22,6 @@ namespace B403Blog.Controllers
 
         public ActionResult KategoriEkle()
         {
-            
             return View();
         }
 
@@ -30,9 +29,18 @@ namespace B403Blog.Controllers
         public ActionResult Ekle(Kategori ktg )
         {
 
+            if (!ModelState.IsValid)
+            {
+                return View("KategoriEkle",ktg);
+            }
+            else
+            {
             db.Kategori.Add(ktg);
             db.SaveChanges();
             return RedirectToAction("Index", "PanelKategori");
+
+            }
+
         }
 
 
@@ -47,7 +55,7 @@ namespace B403Blog.Controllers
             {
                 TempData["KategoriSilinemez"] = "Bu Kategoriye bağlı Makaleler bulunmaktadır!";
             }
-            if (silinecekkategori.Makale.Count<0)
+            if (silinecekkategori.Makale.Count<=0)
             {
                 db.Kategori.Remove(silinecekkategori);
                 db.SaveChanges();

@@ -121,7 +121,6 @@ namespace B403Blog.Controllers
                     Image img = Image.FromStream(resim.InputStream);
 
 
-      
 
                     Bitmap kckResim = new Bitmap(img, Settings.ResimKucukBoyut);
                     Bitmap ortaResim = new Bitmap(img, Settings.ResimOrtaBoyut);
