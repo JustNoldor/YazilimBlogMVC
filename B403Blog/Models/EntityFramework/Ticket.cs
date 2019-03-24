@@ -11,11 +11,14 @@ namespace B403Blog.Models.EntityFramework
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
+
     public partial class Ticket
     {
         public int TicketID { get; set; }
+        [Required(ErrorMessage = "Konu alaný zorunludur!")]
         public string TicketKonu { get; set; }
+        [Required(ErrorMessage = "Açýklama alaný zorunludur!")]
         public string TicketAciklama { get; set; }
         public int GonderenId { get; set; }
         public string GonderenAdi { get; set; }

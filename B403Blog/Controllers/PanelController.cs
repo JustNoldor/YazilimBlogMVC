@@ -19,13 +19,6 @@ namespace B403Blog.Controllers
         BlogYazilimEntities2 db = new BlogYazilimEntities2();
 
 
-
-        //[HttpPost]
-
-
-
-        // GET: Panel
-
         public ActionResult Index()
         {
             var model = db.Makale.ToList();
@@ -39,6 +32,7 @@ namespace B403Blog.Controllers
         public ActionResult MakaleEkle()
         {
             ViewBag.Kategoriler = db.Kategori.ToList();
+            ViewBag.Category = new SelectList(db.Kategori, "KategoriId", "Adi");
             return View();
         }
 
@@ -46,20 +40,24 @@ namespace B403Blog.Controllers
         [HttpPost]
         public ActionResult Ekle(Makale mkl, HttpPostedFileBase resim)
         {
+
+
             Image img = Image.FromStream(resim.InputStream);
             Bitmap kckResim = new Bitmap(img, Settings.ResimKucukBoyut);
             Bitmap ortaResim = new Bitmap(img, Settings.ResimOrtaBoyut);
             Bitmap bykResim = new Bitmap(img, Settings.ResimBuyukBoyut);
+            string uzantitarih = DateTime.Now.ToString("dd-MM-yyyy-HH-mm-ss");
+           var uzantiresim = System.IO.Path.GetExtension(resim.FileName);
 
-            kckResim.Save(Server.MapPath("/Content/MakaleResim/KucukBoyut/" + resim.FileName));
-            ortaResim.Save(Server.MapPath("/Content/MakaleResim/OrtaBoyut/" + resim.FileName));
-            bykResim.Save(Server.MapPath("/Content/MakaleResim/BuyukBoyut/" + resim.FileName));
+            kckResim.Save(Server.MapPath("/Content/MakaleResim/KucukBoyut/" + resim.FileName+ uzantitarih+ uzantiresim));
+            ortaResim.Save(Server.MapPath("/Content/MakaleResim/OrtaBoyut/" + resim.FileName + uzantitarih + uzantiresim));
+            bykResim.Save(Server.MapPath("/Content/MakaleResim/BuyukBoyut/" + resim.FileName +  uzantitarih + uzantiresim));
 
             Resim rsm = new Resim();
 
-            rsm.BuyukBoyut = "/Content/MakaleResim/BuyukBoyut/" + resim.FileName;
-            rsm.OrtaBoyut = "/Content/MakaleResim/OrtaBoyut/" + resim.FileName;
-            rsm.KucukBoyut = "/Content/MakaleResim/KucukBoyut/" + resim.FileName;
+            rsm.BuyukBoyut = "/Content/MakaleResim/BuyukBoyut/" + resim.FileName + uzantitarih + uzantiresim;
+            rsm.OrtaBoyut = "/Content/MakaleResim/OrtaBoyut/" + resim.FileName + uzantitarih + uzantiresim;
+            rsm.KucukBoyut = "/Content/MakaleResim/KucukBoyut/" + resim.FileName + uzantitarih + uzantiresim;
 
 
             db.Resim.Add(rsm);
@@ -76,7 +74,7 @@ namespace B403Blog.Controllers
 
         }
 
-        [Authorize(Roles = "Admin,Supervisor")]
+
         public ActionResult Sil(int id)
         {
             var silinecekmakale = db.Makale.Find(id);
