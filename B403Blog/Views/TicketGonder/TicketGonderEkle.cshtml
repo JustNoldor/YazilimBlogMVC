@@ -1,4 +1,6 @@
-﻿@{
+﻿@model B403Blog.Models.EntityFramework.Ticket
+
+@{
     ViewBag.Title = "TicketGonderEkle";
     Layout = "~/Views/Shared/Panel.cshtml";
 }
@@ -11,11 +13,19 @@
             <table class="table table-bordered">
                 <tr>
                     <th>Ticket Adı : </th>
-                    <td> <input type="text" name="TicketKonu" class="form-control" value="" /></td>
+                    <td>
+                        @Html.TextAreaFor(m => m.TicketKonu, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(m => m.TicketKonu, "", new { @class = "text-danger" })
+
+                    </td>
                 </tr>
                 <tr>
                     <th>Ticket: </th>
-                    <td>  <textarea type="text" class="form-control" aria-label="With textarea" style="height:400px;" name="TicketAciklama" value=""></textarea> </td>
+                    <td>
+                        @Html.TextAreaFor(m => m.TicketAciklama, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(m => m.TicketAciklama, "", new { @class = "text-danger" })
+
+                    </td>
                 </tr>
                 <tr>
                     <td></td>

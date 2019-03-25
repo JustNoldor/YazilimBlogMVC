@@ -41,7 +41,6 @@ namespace B403Blog.Controllers
         public ActionResult Ekle(Makale mkl, HttpPostedFileBase resim)
         {
 
-
             Image img = Image.FromStream(resim.InputStream);
             Bitmap kckResim = new Bitmap(img, Settings.ResimKucukBoyut);
             Bitmap ortaResim = new Bitmap(img, Settings.ResimOrtaBoyut);
@@ -92,14 +91,8 @@ namespace B403Blog.Controllers
         {
             //Güncelle
 
-
-
             try
             {
-
-               // var deneme = db.Makale.Include(x => x.Kategori).Include(y => y.Kullanici).ToList(); 
-
-                //var model = db.Makale.Find(id);
                 var model = db.Makale.Where(m => m.MakaleId == id).SingleOrDefault();
 
 

@@ -46,7 +46,7 @@
                 </div>
                 <div class="form-group">
                     @Html.LabelFor(m => m.ResimID, "Resim")
-                    <input type="file" name="resim" id="resim" value="" accept=".jpg,.jpeg,.png" class="form-control" />
+                    <input type="file" name="resim" id="resim" value="" accept=".jpg,.jpeg,.png" class="form-control" required aria-required="true" />
                     @Html.ValidationMessageFor(m => m.ResimID, "", new { @class = "text-danger" })
                 </div>
 

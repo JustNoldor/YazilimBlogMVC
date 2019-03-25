@@ -11,7 +11,7 @@ namespace B403Blog.Models.EntityFramework
 {
     using System;
     using System.Collections.Generic;
-
+    using System.ComponentModel.DataAnnotations;
 
     public partial class Makale
     {
@@ -24,8 +24,12 @@ namespace B403Blog.Models.EntityFramework
         }
     
         public int MakaleId { get; set; }
+        [Required(ErrorMessage = "Açýklama alaný zorunludur!")]
+        [StringLength(300, ErrorMessage = "En fazla 300 karakter girilebilir!", MinimumLength = 1)]
         public string Aciklama { get; set; }
+        [Required(ErrorMessage = "Baþlýk alaný zorunludur!")]
         public string Baslik { get; set; }
+        [Required(ErrorMessage = "Ýçerik alaný zorunludur!")]
         public string Icerik { get; set; }
         public System.DateTime EklenmeTarihi { get; set; }
         public int KategoriID { get; set; }

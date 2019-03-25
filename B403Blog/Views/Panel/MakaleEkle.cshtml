@@ -21,13 +21,21 @@
         <div class="table-responsive">
             <form action="/Panel/Ekle" method="post" enctype="multipart/form-data">
                 <table class="table table-bordered">
+
                     <tr>
                         <th>Başlık :</th>
-                        <td> <input type="text" name="Baslik" class="form-control" value="" /></td>
+                        <td>
+                            @Html.TextBoxFor(m => m.Baslik, new { @class = "form-control" })
+                            @Html.ValidationMessageFor(m => m.Baslik, "", new { @class = "text-danger" })
+                        </td>
                     </tr>
                     <tr>
                         <th>Açıklama :</th>
-                        <td> <input type="text" name="Aciklama" class="form-control" value="300 Katakter girilebilir." /></td>
+                        <td>
+                            @Html.TextBoxFor(m => m.Aciklama, new { @class = "form-control" })
+                            @Html.ValidationMessageFor(m=>m.Aciklama, "", new { @class = "text-danger" })
+
+                        </td>
                     </tr>
                     <tr>
                         <th>İçerik:</th>
@@ -39,10 +47,11 @@
                                     $('#summernote').summernote({
                                         height: 400,
                                         tabsize: 2,
-                                        width: 666,
+                                        width: 825,
                                     });
                                 });
                             </script>
+                            @Html.ValidationMessageFor(m => m.Icerik, "", new { @class = "text-danger" })
                         </td>
 
                     </tr>
@@ -50,12 +59,12 @@
                         <th>Kategori:</th>
                         <td>
                             <div class="input-group mb-3">
-                                <select class="btn btn-outline-secondary dropdown-toggle" style="width: 100%;" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" name="KategoriID">
+                                <select class="btn btn-outline-secondary dropdown-toggle" style="width: 100%;" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" name="KategoriID" required aria-required="true">
                                     @foreach (B403Blog.Models.EntityFramework.Kategori item in ViewBag.Kategoriler)
                                     {
-                                    <option value="@item.KategoriId">
-                                        @item.Adi
-                                    </option>
+                                        <option value="@item.KategoriId">
+                                            @item.Adi
+                                        </option>
 
                                     }
                                 </select>
@@ -65,7 +74,7 @@
 
                     <tr>
                         <th>Resim : </th>
-                        <td class="btn btn-outline-secondary" style="width: 100%;"> <input type="file" name="resim" value=" " /> </td>
+                        <td class="btn btn-outline-secondary" style="width: 100%;"> <input type="file" name="resim" value="" required aria-required="true" /></td>
                     </tr>
                     <tr>
                         <td></td>
@@ -74,8 +83,7 @@
                         </th>
                     </tr>
                 </table>
-
-            </form>
-        </div>
+</form>
+</div>
     </div>
 </div>

@@ -17,12 +17,14 @@
             <table class="table table-bordered">
                 <tr>
                     <th>Kategori Adı : </th>
-                    <td> <input type="text" name="adi" class="form-control" value="" /> @Html.ValidationMessageFor(m => m.Adi)</td>
+                    <td> <input type="text" name="adi" class="form-control" value="" />@Html.ValidationMessageFor(m => m.Adi, "", new { @class = "text-danger" })
+</td>
 
                 </tr>
                 <tr>
                     <th>Kategori İçeriği : </th>
-                    <td>  <textarea type="text" class="form-control" aria-label="With textarea" style="height:400px;" name="Aciklama" value=""></textarea>                     @Html.ValidationMessageFor(m => m.Aciklama)</td>
+                    
+                    <td>  <textarea type="text" class="form-control" aria-label="With textarea" style="height:200px;" name="Aciklama" value=""> </textarea>@Html.ValidationMessageFor(m => m.Aciklama, "", new { @class = "text-danger" }) </td>
 
                 </tr>
                 <tr>

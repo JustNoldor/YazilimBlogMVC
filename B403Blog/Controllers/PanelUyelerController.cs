@@ -83,7 +83,6 @@ namespace B403Blog.Controllers
 
         }
 
-        [Authorize(Roles = "Admin,2")]
         public ActionResult Sil(int id )
         {
             var silinecekklnc = db.Kullanici.Find(id);
@@ -95,9 +94,21 @@ namespace B403Blog.Controllers
                 return HttpNotFound();
             else
             {
-                //Kullanıcının bağlı olduğu rol ve kullanıcı siliniyor.
+                //Kullanıcının bağlı olduğu makaleleri bul ve bir listeye ata.
+                var baglipost = db.Makale.Where(x => x.YazarID == id).ToList();
+                
+                // Kullanıcı Makalelerinin bağlı olduğu Id'yi Adminin Id'sine tek tek atar(AdminId=1).
+                foreach (var gonderi in baglipost)
+                {
+                    gonderi.YazarID = 1;
+                }
+                db.SaveChanges();
+
+                //Kullanıcının bağlı olduğu rolü siliniyor.
                 db.KullaniciRol.Remove(userrol);
                 db.SaveChanges();
+
+                //Kullanıcıyı siler.
                 db.Kullanici.Remove(silinecekklnc);
                 db.SaveChanges();
 
