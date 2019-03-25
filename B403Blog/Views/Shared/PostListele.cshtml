@@ -34,7 +34,7 @@
     </div>
 }
 
-<div class="row mx-0" id="silinecekpaging">
+<div class="row mx-0" id="silinecekpaging" style="width:770px;">
     <div class="col-12 text-center pb-4 pt-4">
         @*@Html.PagedListPager((IPagedList)Model, page => Url.Action("Index", new { page, @class = "btn_pagging" }), PagedListRenderOptions.PageNumbersOnly)
             @Html.PagedListPager((IPagedList)Model, page => Url.Action("Index", new { page }))

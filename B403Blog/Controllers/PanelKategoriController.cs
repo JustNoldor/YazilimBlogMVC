@@ -22,7 +22,6 @@ namespace B403Blog.Controllers
 
         public ActionResult KategoriEkle()
         {
-            
             return View();
         }
 
