@@ -1,9 +1,12 @@
-﻿
+﻿@model B403Blog.Models.EntityFramework.Kategori
+
 @{
     ViewBag.Title = "KategoriEkle";
     Layout = "~/Views/Shared/Panel.cshtml";
 }
-
+<!--Client Side Validation-->
+<script src="/Scripts/jquery.validate.min.js"></script>
+<script src="/Scripts/jquery.validate.unobtrusive.min.js"></script>
 
 <div class="card shadow mb-4">
     <div class="card-header py-3">
@@ -14,11 +17,13 @@
             <table class="table table-bordered">
                 <tr>
                     <th>Kategori Adı : </th>
-                    <td> <input type="text" name="adi" class="form-control" value="" /></td>
+                    <td> <input type="text" name="adi" class="form-control" value="" /> @Html.ValidationMessageFor(m => m.Adi)</td>
+
                 </tr>
                 <tr>
                     <th>Kategori İçeriği : </th>
-                    <td>  <textarea type="text" class="form-control" aria-label="With textarea" style="height:400px;" name="Aciklama" value=""></textarea> </td>
+                    <td>  <textarea type="text" class="form-control" aria-label="With textarea" style="height:400px;" name="Aciklama" value=""></textarea>                     @Html.ValidationMessageFor(m => m.Aciklama)</td>
+
                 </tr>
                 <tr>
                     <td></td>
@@ -30,8 +35,8 @@
 
         </form>
 
-        </div>
     </div>
+</div>
 
 
 

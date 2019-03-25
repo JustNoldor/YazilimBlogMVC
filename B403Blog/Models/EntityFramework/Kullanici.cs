@@ -11,7 +11,8 @@ namespace B403Blog.Models.EntityFramework
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
+
     public partial class Kullanici
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -25,10 +26,15 @@ namespace B403Blog.Models.EntityFramework
         }
     
         public int KullaniciId { get; set; }
+        [Required(ErrorMessage = "Ad alaný zorunludur!")]
         public string Adi { get; set; }
+        [Required(ErrorMessage = "Soyad alaný zorunludur!")]
         public string Soyadi { get; set; }
+        [Required(ErrorMessage = "Kulanýcý Adý alaný zorunludur!")]
         public string KullaniciAdi { get; set; }
+        [Required(ErrorMessage = "Parolar alaný zorunludur!")]
         public string Parola { get; set; }
+        [Required(ErrorMessage = "Mail Adresi alaný zorunludur!")]
         public string MailAdres { get; set; }
         public Nullable<bool> Cinsiyet { get; set; }
         public Nullable<System.DateTime> DogumTarihi { get; set; }

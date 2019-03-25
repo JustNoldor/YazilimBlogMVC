@@ -2552,6 +2552,11 @@
     <Content Include="Scripts\jquery-3.0.0.slim.min.js" />
     <Content Include="Scripts\jquery.dataTables.js" />
     <Content Include="Scripts\jquery.dataTables.min.js" />
+    <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery.validate.js" />
+    <Content Include="Scripts\jquery.validate.min.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\popper-utils.js" />
     <Content Include="Scripts\popper-utils.min.js" />
     <Content Include="Scripts\popper.js" />
@@ -2780,6 +2785,7 @@
     <Content Include="Views\TicketGonder\TicketOkuForm.cshtml" />
     <Content Include="Views\TicketGonder\TicketDetay.cshtml" />
     <Content Include="Views\Home\SayfaListele.cshtml" />
+    <Content Include="Views\PanelKategori\KategoriEkleForm.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
