@@ -26,6 +26,7 @@ namespace B403Blog.Controllers
         }
 
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public ActionResult Ekle(Kategori ktg )
         {
 
@@ -78,6 +79,7 @@ namespace B403Blog.Controllers
 
         }
 
+        [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Kaydet(Kategori kategori)
         {

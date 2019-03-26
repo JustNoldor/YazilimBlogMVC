@@ -36,6 +36,7 @@ namespace B403Blog.Controllers
 
         }
 
+        
         public ActionResult UyeEkle()
         {
             ViewBag.Kullanicilar = db.Rol.Take(2).ToList();
@@ -43,7 +44,9 @@ namespace B403Blog.Controllers
             return View();
         }
 
+
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public ActionResult Ekle(Kullanici klnc, HttpPostedFileBase resim,KullaniciRol roller,Rol asılrol)
         {
             Image img = Image.FromStream(resim.InputStream);

@@ -18,8 +18,6 @@ namespace B403Blog.Controllers
         // GET: PanelDashboard
         public ActionResult Index()
         {
-            // var model = db.Makale.Count();
-            // return View();/*model*/
             BlogYazilimEntities2 db = new BlogYazilimEntities2();
             ViewModels.DashboardVM vm = new ViewModels.DashboardVM();
             vm.Makale = db.Makale.ToList();

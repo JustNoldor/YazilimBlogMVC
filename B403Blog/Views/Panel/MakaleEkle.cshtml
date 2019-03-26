@@ -20,6 +20,7 @@
     <div class="card-body">
         <div class="table-responsive">
             <form action="/Panel/Ekle" method="post" enctype="multipart/form-data">
+                @Html.AntiForgeryToken()
                 <table class="table table-bordered">
 
                     <tr>

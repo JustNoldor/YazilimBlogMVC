@@ -13,27 +13,28 @@
         <div class="table-responsive">
 
             <form action="/PanelUyeler/Ekle" method="post" enctype="multipart/form-data">
+                @Html.AntiForgeryToken()
                 <table class="table table-bordered">
                     <tr>
                         <th>Adı</th>
-                        <td> 
-                        @Html.TextBoxFor(m => m.Adi, new { @class = "form-control" })
-                        @Html.ValidationMessageFor(m => m.Adi, "", new { @class = "text-danger" })
+                        <td>
+                            @Html.TextBoxFor(m => m.Adi, new { @class = "form-control" })
+                            @Html.ValidationMessageFor(m => m.Adi, "", new { @class = "text-danger" })
                         </td>
                     </tr>
                     <tr>
                         <th>Soyadı</th>
-                        <td> 
-                        @Html.TextBoxFor(m => m.Soyadi, new { @class = "form-control" })
-                        @Html.ValidationMessageFor(m => m.Soyadi, "", new { @class = "text-danger" })
+                        <td>
+                            @Html.TextBoxFor(m => m.Soyadi, new { @class = "form-control" })
+                            @Html.ValidationMessageFor(m => m.Soyadi, "", new { @class = "text-danger" })
                         </td>
 
                     </tr>
                     <tr>
                         <th>Kullanıcı Adı</th>
                         <td>
-                        @Html.TextBoxFor(m => m.KullaniciAdi, new { @class = "form-control" })
-                        @Html.ValidationMessageFor(m => m.KullaniciAdi, "", new { @class = "text-danger" })
+                            @Html.TextBoxFor(m => m.KullaniciAdi, new { @class = "form-control" })
+                            @Html.ValidationMessageFor(m => m.KullaniciAdi, "", new { @class = "text-danger" })
                         </td>
                     </tr>
                     <tr>
@@ -45,7 +46,7 @@
                     </tr>
                     <tr>
                         <th>Mail</th>
-                        <td> 
+                        <td>
                             @Html.TextBoxFor(m => m.MailAdres, new { @class = "form-control" })
                             @Html.ValidationMessageFor(m => m.MailAdres, "", new { @class = "text-danger" })
                         </td>
@@ -70,7 +71,7 @@
 
                     <tr>
                         <th>Resim : </th>
-                        <td class="btn btn-outline-secondary" style="width: 100%;"> <input type="file" name="resim" value="" required aria-required="true"/> </td>
+                        <td class="btn btn-outline-secondary" style="width: 100%;"> <input type="file" name="resim" value="" required aria-required="true" /> </td>
                     </tr>
                     <tr>
                         <td></td>

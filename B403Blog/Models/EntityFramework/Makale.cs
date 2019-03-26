@@ -32,6 +32,7 @@ namespace B403Blog.Models.EntityFramework
         [Required(ErrorMessage = "Ýçerik alaný zorunludur!")]
         public string Icerik { get; set; }
         public System.DateTime EklenmeTarihi { get; set; }
+        [Required(ErrorMessage = "Kategori alaný zorunludur!")]
         public int KategoriID { get; set; }
         public int GoruntulenmeSayisi { get; set; }
         public int Begeni { get; set; }

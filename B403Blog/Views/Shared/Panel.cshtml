@@ -126,27 +126,27 @@
                     Yönetici Arayüzü
                 </div>
 
-                    <li class="nav-item">
-                        <a class="nav-link" href="/PanelUyeler/Index">
-                            <i class="fas fa-fw fa-chart-area"></i>
-                            <span>Üyeler</span>
-                        </a>
-                    </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/PanelUyeler/Index">
+                        <i class="fas fa-fw fa-chart-area"></i>
+                        <span>Üyeler</span>
+                    </a>
+                </li>
 
-                    <li class="nav-item">
-                        <a class="nav-link" href="/TicketGonder/Index" aria-expanded="true">
-                            <i class="fas fa-fw fa-wrench"></i>
-                            <span>Ticket Oku</span>
-                        </a>
-                    </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/TicketGonder/Index" aria-expanded="true">
+                        <i class="fas fa-fw fa-wrench"></i>
+                        <span>Ticket Oku</span>
+                    </a>
+                </li>
 
-                    <!-- Nav Item - Charts -->
-                    <li class="nav-item">
-                        <a class="nav-link" href="charts.html">
-                            <i class="fas fa-fw fa-chart-area"></i>
-                            <span>Log Listesi</span>
-                        </a>
-                    </li>
+                <!-- Nav Item - Charts -->
+                <li class="nav-item">
+                    <a class="nav-link" href="charts.html">
+                        <i class="fas fa-fw fa-chart-area"></i>
+                        <span>Log Listesi</span>
+                    </a>
+                </li>
             }
 
 
@@ -213,11 +213,11 @@
                             </div>
                         </li>
                         <!-- Nav Item - Alerts -->
-                         
-                       @{Html.RenderAction("TicketWidget", "Home");}
+
+                        @{Html.RenderAction("TicketWidget", "Home");}
 
 
-                                                 
+
 
 
                     </ul>
@@ -274,33 +274,16 @@
         </div>
     </div>
 
-    <!-- Bootstrap core JavaScript-->
-    @*<script src="/Content/AdminContent/vendor/jquery/jquery.min.js"></script>
-        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>*@
 
-    <script src="/Content/AdminContent/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-    <!-- Core plugin JavaScript-->
-    <script src="/Content/AdminContent/vendor/jquery-easing/jquery.easing.min.js"></script>
-    <!-- Custom scripts for all pages-->
-    <script src="/Content/AdminContent/js/sb-admin-2.min.js"></script>
-    <!-- Page level plugins -->
-    <script src="vendor/chart.js/Chart.min.js"></script>
-    <!-- Page level custom scripts -->
-    <script src="/Content/AdminContent/js/demo/chart-area-demo.js"></script>
-    <script src="/Content/AdminContent/js/demo/chart-pie-demo.js"></script>
+
+    @using System.Web.Optimization
+    @Scripts.Render("~/bundles/scripts")
 
     <script src="/Scripts/bootbox.min.js"></script>
 
-    <script src="/Content/Datatables/jquery.dataTables.min.js"></script>
-    <script src="/Content/Datatables/dataTables.bootstrap.min.js"></script>
-
-
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js."></script>
-
-
     <link href="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.11/summernote-bs4.css" rel="stylesheet">
-
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js"></script>
@@ -308,16 +291,9 @@
 
 
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.css">
-
     <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.js"></script>
-
     <link rel="stylesheet" type="text/css" href="http://ajax.aspnetcdn.com/ajax/jquery.dataTables/1.9.4/css/jquery.dataTables.css" />
-
     <script src="http://ajax.aspnetcdn.com/ajax/jquery.dataTables/1.9.4/jquery.dataTables.min.js"></script>
-
-    <!--Client Side Validation-->
-    <script src="/Scripts/jquery.validate.min.js"></script>
-    <script src="/Scripts/jquery.validate.unobtrusive.min.js"></script>
 
 
 </body>

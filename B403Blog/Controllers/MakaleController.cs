@@ -35,6 +35,7 @@ namespace B403Blog.Controllers
             return View(data);
         }
 
+        [OutputCache(Duration = 120)]
         [AllowAnonymous]
         public ActionResult DetaySingle(int id)
         {

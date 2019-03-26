@@ -22,11 +22,13 @@ namespace B403Blog.Controllers
             return View(id);
         }
 
+        [OutputCache(Duration = 120)]
         public PartialViewResult KategoriWidget()
         {
             return PartialView(db.Kategori.ToList());
         }
 
+        [OutputCache(Duration = 120)]
         public ActionResult MakaleListele(int id)
         {
             var data = db.Makale.Where(x => x.Kategori.KategoriId == id).OrderByDescending(x=>x.EklenmeTarihi).ToList();
