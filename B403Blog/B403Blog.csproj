@@ -1873,6 +1873,7 @@
     <Content Include="Content\image\adminlogo.png" />
     <Content Include="Content\image\defaultUser.png" />
     <Content Include="Content\image\like.png" />
+    <Content Include="Content\image\newbulllogofirst.png" />
     <Content Include="Content\image\view.png" />
     <Content Include="Content\Loginv3\css\main.css" />
     <Content Include="Content\Loginv3\css\util.css" />

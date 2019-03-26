@@ -35,7 +35,7 @@ namespace B403Blog.Controllers
         //Asıl Makale Listeleme Kısmı
         public ActionResult MakaleListele(int? page)
         {
-            var data = db.Makale.OrderByDescending(x => x.EklenmeTarihi).Skip(5).ToList().ToPagedList(page ?? 1,10);
+            var data = db.Makale.OrderByDescending(x => x.EklenmeTarihi).Skip(5).ToList().ToPagedList(page ?? 1,7);
             return View("PostListele", data);
         }
         
