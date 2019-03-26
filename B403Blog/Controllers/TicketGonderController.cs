@@ -7,6 +7,7 @@ using System.Web.Mvc;
 
 namespace B403Blog.Controllers
 {
+    [Authorize]
     public class TicketGonderController : Controller
     {
         BlogYazilimEntities2 db = new BlogYazilimEntities2();
