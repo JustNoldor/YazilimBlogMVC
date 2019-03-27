@@ -9,7 +9,7 @@ using System.Web.Mvc;
 
 namespace B403Blog.Controllers
 {
-    [Authorize(Roles = "Admin,2")]
+    [Authorize]
     public class PanelUyelerController : Controller
     {
         // Veritabanı Bağlantısı
@@ -23,6 +23,7 @@ namespace B403Blog.Controllers
           
         }
 
+
         public ActionResult Guncelle(int id)
         {
             var model = db.Kullanici.Find(id);
@@ -34,12 +35,14 @@ namespace B403Blog.Controllers
 
         }
 
+
         public ActionResult UyeEkle()
         {
             ViewBag.Kullanicilar = db.Rol.Take(2).ToList();
 
             return View();
         }
+
 
         [HttpPost]
         [ValidateAntiForgeryToken]
