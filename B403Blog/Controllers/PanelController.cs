@@ -41,6 +41,7 @@ namespace B403Blog.Controllers
         public ActionResult Ekle(Makale mkl, HttpPostedFileBase resim)
         {
 
+
             Image img = Image.FromStream(resim.InputStream);
             Bitmap kckResim = new Bitmap(img, Settings.ResimKucukBoyut);
             Bitmap ortaResim = new Bitmap(img, Settings.ResimOrtaBoyut);
@@ -57,7 +58,6 @@ namespace B403Blog.Controllers
             rsm.BuyukBoyut = "/Content/MakaleResim/BuyukBoyut/" + resim.FileName + uzantitarih + uzantiresim;
             rsm.OrtaBoyut = "/Content/MakaleResim/OrtaBoyut/" + resim.FileName + uzantitarih + uzantiresim;
             rsm.KucukBoyut = "/Content/MakaleResim/KucukBoyut/" + resim.FileName + uzantitarih + uzantiresim;
-
 
             db.Resim.Add(rsm);
             db.SaveChanges();

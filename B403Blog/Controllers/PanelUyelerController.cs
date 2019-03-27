@@ -9,13 +9,11 @@ using System.Web.Mvc;
 
 namespace B403Blog.Controllers
 {
-    [Authorize]
+    [Authorize(Roles = "Admin,2")]
     public class PanelUyelerController : Controller
     {
         // Veritabanı Bağlantısı
         BlogYazilimEntities2 db = new BlogYazilimEntities2();
-
-
 
 
         public ActionResult Index()
@@ -36,14 +34,12 @@ namespace B403Blog.Controllers
 
         }
 
-        
         public ActionResult UyeEkle()
         {
             ViewBag.Kullanicilar = db.Rol.Take(2).ToList();
 
             return View();
         }
-
 
         [HttpPost]
         [ValidateAntiForgeryToken]

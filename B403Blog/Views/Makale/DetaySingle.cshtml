@@ -33,23 +33,23 @@
 
 @model B403Blog.Models.EntityFramework.Makale
 
-<div class="container-fluid pb-4 pt-4 paddding">
-    <img src="@Model.Resim.BuyukBoyut" alt="img" width="666"  />
-</div>
-<div class="container-fluid pb-4 pt-4 paddding" style="width:1000px;">
-    <div class="col-md-8 animate-box fadeInLeft animated-fast" data-animate-effect="fadeInLeft">
+<img src="@Model.Resim.BuyukBoyut" alt="img" style="max-width:100% !important;height:auto !important;"  />
+
+
+    <div class="col-md-8 animate-box fadeInLeft animated-fast" data-animate-effect="fadeInLeft" style="max-width: 100%;width:100%;padding-top: 20px;" >
+        <h3> @Model.Baslik @Model.EklenmeTarihi.ToShortDateString() </h3>  
         @Html.Raw(Model.Icerik)
     </div>
-</div>
 
-<div class="container-fluid pb-4 pt-4 paddding" style="width:1000px;">
+
+<div class="container-fluid pb-4 pt-4 paddding" style="width:100%;">
     <div class="col-md-8 animate-box fadeInLeft animated-fast" data-animate-effect="fadeInLeft">
         <div class="row">
             <div class="panel panel-default" style="width:636px;">
                 <div class="panel-heading">  <h4>Yazar Bilgileri</h4></div>
                 <div class="panel-body">
                     <div class="col-md-4 col-xs-12 col-sm-6 col-lg-4">
-                        <img alt="User Pic" src="@Model.Kullanici.Resim.KucukBoyut" id="profile-image1" class="img-circle img-responsive" height="100" width="100">
+                        <img alt="User Pic" src="@Model.Kullanici.Resim.OrtaBoyut" id="profile-image1" class="img-circle img-responsive" height="100" width="100">
 
 
                     </div>
@@ -57,7 +57,7 @@
                         <div class="container">
                             <h2>@Model.Kullanici.KullaniciAdi</h2>
                             
-                             an <p><b> Yazar </b></p>
+                             <p><b> Yazar </b></p>
 
                             </div>
                         <div class="col-sm-5 col-xs-6 tital ">Katılma Tarihi: @Model.Kullanici.KayitTarihi.ToShortDateString()</div>
