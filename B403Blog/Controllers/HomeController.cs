@@ -64,5 +64,15 @@ namespace B403Blog.Controllers
             return PartialView(model);
         }
 
+        //Trend Makaleler(Son 1 haftada en çok görüntülenen 6 makaleyi listeler.)
+        public ActionResult TrendMakaleler()
+        {
+            DateTime birhaftaonce = DateTime.Now.AddDays(-7);
+            var makalelersonbirhafta = db.Makale.Where(x => x.EklenmeTarihi > birhaftaonce).ToList();
+            var goruntulenen = makalelersonbirhafta.OrderByDescending(x => x.GoruntulenmeSayisi).Take(6).ToList();
+            return PartialView(goruntulenen);
+
+        }
+
     }
 }

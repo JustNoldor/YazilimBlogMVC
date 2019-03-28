@@ -2788,6 +2788,7 @@
     <Content Include="Views\TicketGonder\TicketDetay.cshtml" />
     <Content Include="Views\Home\SayfaListele.cshtml" />
     <Content Include="Views\PanelKategori\KategoriEkleForm.cshtml" />
+    <Content Include="Views\Home\TrendMakaleler.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

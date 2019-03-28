@@ -21,8 +21,8 @@ namespace B403Blog.Controllers
 
         public ActionResult Index()
         {
-            var model = db.Makale.ToList();
-
+            var model1 = db.Makale.OrderByDescending(x=>x.EklenmeTarihi).ToList();
+            var model = db.Makale.OrderByDescending(x => x.EklenmeTarihi).ToList();
             return View(model);
         }
 
@@ -33,6 +33,7 @@ namespace B403Blog.Controllers
         {
             ViewBag.Kategoriler = db.Kategori.ToList();
             ViewBag.Category = new SelectList(db.Kategori, "KategoriId", "Adi");
+            ViewBag.kategoriId = new SelectList(db.Kategori, "KategoriID", "Adi");
             return View();
         }
 

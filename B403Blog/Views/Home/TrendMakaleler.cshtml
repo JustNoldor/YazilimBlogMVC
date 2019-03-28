@@ -1,0 +1,15 @@
+﻿@model IEnumerable<B403Blog.Models.EntityFramework.Makale>
+
+@foreach (B403Blog.Models.EntityFramework.Makale makale in Model)
+{
+    <div class="item px-2">
+        <div class="fh5co_hover_news_img">
+            <div class="fh5co_news_img"><img src="@makale.Resim.OrtaBoyut" alt="img" /></div>
+            <div>
+                <a href="#" class="d-block fh5co_small_post_heading"><span class="">@makale.Baslik</span></a>
+                <div class="c_g"><i class="fa fa-clock-o"></i> @makale.EklenmeTarihi.ToShortDateString()</div>
+            </div>
+        </div>
+    </div>
+}
+
