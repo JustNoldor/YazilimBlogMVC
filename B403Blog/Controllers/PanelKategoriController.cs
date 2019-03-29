@@ -30,17 +30,18 @@ namespace B403Blog.Controllers
         public ActionResult Ekle(Kategori ktg )
         {
 
-            if (!ModelState.IsValid)
-            {
-                return View("KategoriEkle",ktg);
-            }
-            else
-            {
+            //if (!ModelState.IsValid)
+            //{
+            //    return View("KategoriEkle",ktg);
+            //}
+            //else
+            //{
+            //aşağısı
+            //}
             db.Kategori.Add(ktg);
             db.SaveChanges();
             return RedirectToAction("Index", "PanelKategori");
 
-            }
 
         }
 

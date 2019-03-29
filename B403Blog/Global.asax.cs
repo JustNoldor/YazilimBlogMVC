@@ -22,6 +22,9 @@ namespace B403Blog
             ViewEngines.Engines.Add(new RazorViewEngine());
 
             BundleConfig.RegisterBundles(BundleTable.Bundles);
+
+
+
         }
     }
 }

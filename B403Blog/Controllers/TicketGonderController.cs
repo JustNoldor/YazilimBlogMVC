@@ -7,7 +7,7 @@ using System.Web.Mvc;
 
 namespace B403Blog.Controllers
 {
-    [Authorize(Roles = "Admin,2")]
+    [Authorize]
     public class TicketGonderController : Controller
     {
         BlogYazilimEntities2 db = new BlogYazilimEntities2();
@@ -39,7 +39,7 @@ namespace B403Blog.Controllers
             return RedirectToAction("Index", "Panel");
         }
 
-        [Authorize(Roles = "Admin,Supervisor")]
+        [Authorize(Roles = "Admin,2")]
         public ActionResult Sil(int id)
         {
             var silinecekticket = db.Ticket.Find(id);

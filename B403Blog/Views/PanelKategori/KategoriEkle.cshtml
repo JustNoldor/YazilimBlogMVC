@@ -4,44 +4,32 @@
     ViewBag.Title = "KategoriEkle";
     Layout = "~/Views/Shared/Panel.cshtml";
 }
-<!--Client Side Validation-->
-<script src="/Scripts/jquery.validate.min.js"></script>
-<script src="/Scripts/jquery.validate.unobtrusive.min.js"></script>
 
 <div class="card shadow mb-4">
     <div class="card-header py-3">
-        <h4 class="m-0 font-weight-bold text-primary">Kategori Ekle</h4>
+        <h4 class="m-0 font-weight-bold text-primary">Kategori Güncelle</h4>
     </div>
     <div class="card-body">
-        <form action="/PanelKategori/Ekle" method="post" enctype="multipart/form-data">
-            @Html.AntiForgeryToken()
-            <table class="table table-bordered">
-                <tr>
-                    <th>Kategori Adı : </th>
-                    <td>
-                        <input type="text" name="adi" class="form-control" value="" />@Html.ValidationMessageFor(m => m.Adi, "", new { @class = "text-danger" })
-                    </td>
+        <div class="table-responsive">
+@using (Html.BeginForm("Ekle", "PanelKategori", FormMethod.Post))
+{
+                @Html.AntiForgeryToken()
+                <div class="form-group">
+                    @Html.LabelFor(m => m.Adi)
+                    @Html.TextBoxFor(m => m.Adi, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(m => m.Adi, "", new { @class = "text-danger" })
+                </div>
 
-                </tr>
-                <tr>
-                    <th>Kategori İçeriği : </th>
+                <div class="form-group">
+                    @Html.LabelFor(m => m.Aciklama)
+                    @Html.TextAreaFor(m => m.Aciklama, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(m => m.Aciklama, "", new { @class = "text-danger" })
 
-                    <td>  <textarea type="text" class="form-control" aria-label="With textarea" style="height:200px;" name="Aciklama" value=""> </textarea>@Html.ValidationMessageFor(m => m.Aciklama, "", new { @class = "text-danger" }) </td>
+                </div>
+                <button type="submit" name="name" class="btn btn-success btn-lg btn-block" style="width:200px;">Kaydet</button>
 
-                </tr>
-                <tr>
-                    <td></td>
-                    <th>
-                        <input type="submit" name="name" class="btn btn-success btn-lg btn-block" style="width: 100%;padding:25px;" value="Kategori Ekle" />
-                    </th>
-                </tr>
-            </table>
-
-        </form>
-
+}
+</div>
     </div>
 </div>
-
-
-
 

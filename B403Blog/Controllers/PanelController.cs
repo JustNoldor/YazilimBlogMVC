@@ -32,8 +32,7 @@ namespace B403Blog.Controllers
         public ActionResult MakaleEkle()
         {
             ViewBag.Kategoriler = db.Kategori.ToList();
-            ViewBag.Category = new SelectList(db.Kategori, "KategoriId", "Adi");
-            ViewBag.kategoriId = new SelectList(db.Kategori, "KategoriID", "Adi");
+            ViewBag.Kategorisecim = new SelectList(db.Kategori, "KategoriId", "Adi");
             return View();
         }
 
@@ -48,7 +47,7 @@ namespace B403Blog.Controllers
             Bitmap ortaResim = new Bitmap(img, Settings.ResimOrtaBoyut);
             Bitmap bykResim = new Bitmap(img, Settings.ResimBuyukBoyut);
             string uzantitarih = DateTime.Now.ToString("dd-MM-yyyy-HH-mm-ss");
-           var uzantiresim = System.IO.Path.GetExtension(resim.FileName);
+            var uzantiresim = System.IO.Path.GetExtension(resim.FileName);
 
             kckResim.Save(Server.MapPath("/Content/MakaleResim/KucukBoyut/" + resim.FileName+ uzantitarih+ uzantiresim));
             ortaResim.Save(Server.MapPath("/Content/MakaleResim/OrtaBoyut/" + resim.FileName + uzantitarih + uzantiresim));
@@ -90,12 +89,13 @@ namespace B403Blog.Controllers
         [ValidateInput(false)]
         public ActionResult Guncelle(int id, HttpPostedFileBase resim,Makale mkl)
         {
-            //Güncelle
+            ViewBag.Kategorisecim = new SelectList(db.Kategori, "KategoriId", "Adi");
 
+            //Güncelle
             try
             {
                 var model = db.Makale.Where(m => m.MakaleId == id).SingleOrDefault();
-
+                var eskiresim = db.Resim.Where(m => m.ResimId == model.ResimID).SingleOrDefault();
 
                 ViewBag.kategoriId = new SelectList(db.Kategori, "KategoriID", "Adi");
 
@@ -111,23 +111,24 @@ namespace B403Blog.Controllers
                     }
 
                     Image img = Image.FromStream(resim.InputStream);
-
-
-
                     Bitmap kckResim = new Bitmap(img, Settings.ResimKucukBoyut);
                     Bitmap ortaResim = new Bitmap(img, Settings.ResimOrtaBoyut);
                     Bitmap bykResim = new Bitmap(img, Settings.ResimBuyukBoyut);
+                    string uzantitarih = DateTime.Now.ToString("dd-MM-yyyy-HH-mm-ss");
+                    var uzantiresim = System.IO.Path.GetExtension(resim.FileName);
 
-                    kckResim.Save(Server.MapPath("/Content/MakaleResim/KucukBoyut/" + resim.FileName));
-                    ortaResim.Save(Server.MapPath("/Content/MakaleResim/OrtaBoyut/" + resim.FileName));
-                    bykResim.Save(Server.MapPath("/Content/MakaleResim/BuyukBoyut/" + resim.FileName));
+                    kckResim.Save(Server.MapPath("/Content/MakaleResim/KucukBoyut/" + resim.FileName + uzantitarih + uzantiresim));
+                    ortaResim.Save(Server.MapPath("/Content/MakaleResim/OrtaBoyut/" + resim.FileName + uzantitarih + uzantiresim));
+                    bykResim.Save(Server.MapPath("/Content/MakaleResim/BuyukBoyut/" + resim.FileName + uzantitarih + uzantiresim));
 
                     Resim rsm = new Resim();
 
+                    rsm.BuyukBoyut = "/Content/MakaleResim/BuyukBoyut/" + resim.FileName + uzantitarih + uzantiresim;
+                    rsm.OrtaBoyut = "/Content/MakaleResim/OrtaBoyut/" + resim.FileName + uzantitarih + uzantiresim;
+                    rsm.KucukBoyut = "/Content/MakaleResim/KucukBoyut/" + resim.FileName + uzantitarih + uzantiresim;
 
-                    rsm.BuyukBoyut = "/Content/MakaleResim/BuyukBoyut/" + resim.FileName;
-                    rsm.OrtaBoyut = "/Content/MakaleResim/OrtaBoyut/" + resim.FileName;
-                    rsm.KucukBoyut = "/Content/MakaleResim/KucukBoyut/" + resim.FileName;
+                    //Eski resimi siler
+                    db.Resim.Remove(eskiresim);
 
                     //Resimi ekleyip Makaleye bağlı olan ResimID'yi değiştirir.
                     db.Resim.Add(rsm);

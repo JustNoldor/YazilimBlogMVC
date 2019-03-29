@@ -20,7 +20,6 @@ namespace B403Blog.Controllers
 
 
         // GET: Home
-
         public ActionResult Index()
         {
             return View();
@@ -34,6 +33,7 @@ namespace B403Blog.Controllers
             return View("PostListele", data);
         }
 
+        //Polüler Makaleler(En çok görüntülenen 3 makaleyi gösterir.)
         [OutputCache(Duration = 120)]
         public PartialViewResult PopulerMakalelerWidget()
         {

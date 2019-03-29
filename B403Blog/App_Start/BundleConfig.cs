@@ -11,10 +11,9 @@ namespace B403Blog.App_Start
         public static void RegisterBundles(BundleCollection bundles)
         {
             bundles.Add(new ScriptBundle("~/bundles/scripts").Include(
+                 "~/Scripts/bootbox.min.js",
                 "~/Scripts/jquery.validate.min.js",
                 "~/Scripts/jquery.validate.unobtrusive.min.js",
-                "~/Content/AdminContent/vendor/bootstrap/js/bootstrap.bundle.min.js",
-                "~/Content/AdminContent/vendor/jquery-easing/jquery.easing.min.js",
                 "~/Content/AdminContent/js/sb-admin-2.min.js",
                 "~/vendor/chart.js/Chart.min.js",
                 "~/Content/AdminContent/js/demo/chart-area-demo.js",

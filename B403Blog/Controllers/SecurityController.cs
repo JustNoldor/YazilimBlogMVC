@@ -23,8 +23,6 @@ namespace B403Blog.Controllers
         [AllowAnonymous]
         public ActionResult Login()
         {
-            ViewBag.Message = TempData["Message"];
-
             return View();
         }
 

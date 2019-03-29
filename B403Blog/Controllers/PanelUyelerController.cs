@@ -9,7 +9,7 @@ using System.Web.Mvc;
 
 namespace B403Blog.Controllers
 {
-    [Authorize]
+    [Authorize(Roles ="Admin,2")]
     public class PanelUyelerController : Controller
     {
         // Veritabanı Bağlantısı
