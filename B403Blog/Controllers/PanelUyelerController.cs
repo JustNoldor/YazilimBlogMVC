@@ -97,6 +97,8 @@ namespace B403Blog.Controllers
                 return HttpNotFound();
             else
             {
+
+
                 //Kullanıcının bağlı olduğu makaleleri bul ve bir listeye ata.
                 var baglipost = db.Makale.Where(x => x.YazarID == id).ToList();
                 
@@ -104,6 +106,16 @@ namespace B403Blog.Controllers
                 foreach (var gonderi in baglipost)
                 {
                     gonderi.YazarID = 1;
+                }
+                db.SaveChanges();
+
+                //Kullanıcının bağlı olduğu ticketları listeler.
+                var bagliticket = db.Ticket.Where(x => x.GonderenId == id).ToList();
+
+                // Kullanıcı ticketlarının bağlı olduğu Id'yi Adminin Id'sine tek tek atar(AdminId=1).
+                foreach (var ticket in bagliticket)
+                {
+                    ticket.GonderenId = 1;
                 }
                 db.SaveChanges();
 
