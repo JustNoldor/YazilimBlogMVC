@@ -2627,6 +2627,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Classes\CustomRoleProvider.cs" />
+    <Compile Include="App_Classes\Helper.cs" />
     <Compile Include="App_Classes\Settings.cs" />
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FontAwesomeBundleConfig.cs" />

@@ -13,7 +13,7 @@ namespace B403Blog.Controllers
     using B403Blog.App_Classes;
     using Models;
     using System.Drawing;
-
+    using System.Text.RegularExpressions;
     public class MakaleController : Controller
     {
         BlogYazilimEntities2 db = new BlogYazilimEntities2();
@@ -28,17 +28,12 @@ namespace B403Blog.Controllers
             return View();
         }
 
+       
         [AllowAnonymous]
-        public ActionResult Detay(int id)
+        [Route("Makaleler/{category}/{baslik}-{id}")]
+        public ActionResult DetaySingle(int id,string baslik,string category)
         {
-            var data = db.Makale.FirstOrDefault(x => x.MakaleId == id);
-            return View(data);
-        }
-
-        [OutputCache(Duration = 120)]
-        [AllowAnonymous]
-        public ActionResult DetaySingle(int id)
-        {
+            ViewBag.Title = baslik;
             var data = db.Makale.FirstOrDefault(x => x.MakaleId == id);
             return View(data);
         }
@@ -51,6 +46,9 @@ namespace B403Blog.Controllers
             return View();
         }
 
+        //SEO URL Helper
+       
+        
 
 
 

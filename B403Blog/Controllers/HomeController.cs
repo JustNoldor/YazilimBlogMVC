@@ -19,7 +19,7 @@ namespace B403Blog.Controllers
         BlogYazilimEntities2 db = new BlogYazilimEntities2();
 
 
-        // GET: Home
+        [Route("Anasayfa")]
         public ActionResult Index()
         {
             return View();
@@ -29,8 +29,11 @@ namespace B403Blog.Controllers
         [OutputCache(Duration =120)]
         public ActionResult MakaleListele(int? page)
         {
-            var data = db.Makale.OrderByDescending(x => x.EklenmeTarihi).Skip(5).ToList().ToPagedList(page ?? 1,7);
-            return View("PostListele", data);
+            //var data = db.Makale.OrderByDescending(x => x.EklenmeTarihi).Skip(5).ToList().ToPagedList(page ?? 1,7);
+
+            var data = db.Makale.OrderByDescending(x => x.EklenmeTarihi).Skip(5).ToList();
+            var duzenlenmisdata = data.Where(x=>x.Aktif==true).ToPagedList(page ?? 1,7);
+            return View("PostListele", duzenlenmisdata);
         }
 
         //Polüler Makaleler(En çok görüntülenen 3 makaleyi gösterir.)

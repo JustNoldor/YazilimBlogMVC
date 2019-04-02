@@ -11,8 +11,7 @@ namespace B403Blog.Models.EntityFramework
 {
     using System;
     using System.Collections.Generic;
-    using System.ComponentModel.DataAnnotations;
-
+    
     public partial class Makale
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -24,20 +23,16 @@ namespace B403Blog.Models.EntityFramework
         }
     
         public int MakaleId { get; set; }
-        [Required(ErrorMessage = "Açýklama alaný zorunludur!")]
-        [StringLength(300, ErrorMessage = "En fazla 300 karakter girilebilir!", MinimumLength = 1)]
         public string Aciklama { get; set; }
-        [Required(ErrorMessage = "Baþlýk alaný zorunludur!")]
         public string Baslik { get; set; }
-        [Required(ErrorMessage = "Ýçerik alaný zorunludur!")]
         public string Icerik { get; set; }
         public System.DateTime EklenmeTarihi { get; set; }
-        [Required(ErrorMessage = "Kategori alaný zorunludur!")]
         public int KategoriID { get; set; }
         public int GoruntulenmeSayisi { get; set; }
         public int Begeni { get; set; }
         public int YazarID { get; set; }
         public Nullable<int> ResimID { get; set; }
+        public Nullable<bool> Aktif { get; set; }
     
         public virtual Kategori Kategori { get; set; }
         public virtual Kullanici Kullanici { get; set; }

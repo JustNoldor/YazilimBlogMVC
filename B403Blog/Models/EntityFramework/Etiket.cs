@@ -11,8 +11,7 @@ namespace B403Blog.Models.EntityFramework
 {
     using System;
     using System.Collections.Generic;
-    using System.ComponentModel.DataAnnotations;
-
+    
     public partial class Etiket
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -22,7 +21,6 @@ namespace B403Blog.Models.EntityFramework
         }
     
         public int EtiketId { get; set; }
-        [Required(ErrorMessage = "Ad alaný zorunludur!")]
         public string Adi { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

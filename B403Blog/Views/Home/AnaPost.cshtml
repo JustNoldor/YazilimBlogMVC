@@ -1,5 +1,7 @@
 ﻿@model IEnumerable<B403Blog.Models.EntityFramework.Makale>
 
+@using B403Blog.App_Classes
+
 @foreach (B403Blog.Models.EntityFramework.Makale makale in Model)
 {
     <div class="col-md-6 col-6 paddding animate-box fadeIn animated-fast" data-animate-effect="fadeIn">
@@ -15,7 +17,7 @@
                         @makale.EklenmeTarihi.ToShortDateString()
                     </a>
                 </div>
-                <div class=""><a href="/Makale/DetaySingle/@makale.MakaleId" class="fh5co_good_font_2"> @makale.Baslik </a></div>
+                <div class=""><a href="/Makaleler/@Url.FriendlyURLTitle(makale.Kategori.Adi.ToString())/@Url.FriendlyURLTitle(@makale.Baslik)/Detay/@makale.MakaleId" class="fh5co_good_font_2"> @makale.Baslik </a></div>
             </div>
         </div>
     </div>

@@ -11,8 +11,7 @@ namespace B403Blog.Models.EntityFramework
 {
     using System;
     using System.Collections.Generic;
-    using System.ComponentModel.DataAnnotations;
-
+    
     public partial class Kategori
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -22,9 +21,7 @@ namespace B403Blog.Models.EntityFramework
         }
     
         public int KategoriId { get; set; }
-        [Required(ErrorMessage ="Ad alaný zorunludur!")]
         public string Adi { get; set; }
-        [Required(ErrorMessage = "Açýklama alaný zorunludur!")]
         public string Aciklama { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

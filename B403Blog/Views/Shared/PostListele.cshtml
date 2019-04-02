@@ -1,4 +1,4 @@
-﻿
+﻿@using B403Blog.App_Classes
 @{
     Layout = null;
 }
@@ -12,8 +12,6 @@
 
 @foreach (B403Blog.Models.EntityFramework.Makale mkl in Model)
 {
-
-
     <div class="row pb-4">
         <div class="col-md-5">
             <div class="fh5co_hover_news_img">
@@ -22,7 +20,9 @@
             </div>
         </div>
         <div class="col-md-7 animate-box">
-            <a href="/Makale/DetaySingle/@mkl.MakaleId" class="fh5co_magna py-2">
+            <a href="/Makaleler/@Url.FriendlyURLTitle(@mkl.Kategori.Adi)/@Url.FriendlyURLTitle(@mkl.Baslik)-@mkl.MakaleId" class="fh5co_magna py-2">
+
+
                 @mkl.Baslik <br />
             </a> <a href="/Yazar/Index/@mkl.YazarID" class="fh5co_mini_time py-3">
                 @mkl.Kullanici.KullaniciAdi  -  @mkl.EklenmeTarihi.ToShortDateString()
@@ -33,7 +33,6 @@
         </div>
     </div>
 }
-
 <div class="row mx-0" id="silinecekpaging" style="width:770px;">
     <div class="col-12 text-center pb-4 pt-4">
         @*@Html.PagedListPager((IPagedList)Model, page => Url.Action("Index", new { page, @class = "btn_pagging" }), PagedListRenderOptions.PageNumbersOnly)
