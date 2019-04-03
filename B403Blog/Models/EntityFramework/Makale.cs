@@ -33,6 +33,7 @@ namespace B403Blog.Models.EntityFramework
         public int YazarID { get; set; }
         public Nullable<int> ResimID { get; set; }
         public Nullable<bool> Aktif { get; set; }
+        public string Etiketler { get; set; }
     
         public virtual Kategori Kategori { get; set; }
         public virtual Kullanici Kullanici { get; set; }

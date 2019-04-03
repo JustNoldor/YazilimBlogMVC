@@ -31,10 +31,15 @@ namespace B403Blog.Controllers
        
         [AllowAnonymous]
         [Route("Makaleler/{category}/{baslik}-{id}")]
-        public ActionResult DetaySingle(int id,string baslik,string category)
+        public ActionResult DetaySingle(int id,string baslik,string category,string Etiketler)
         {
+
             ViewBag.Title = baslik;
             var data = db.Makale.FirstOrDefault(x => x.MakaleId == id);
+            var bul = db.Makale.Find(data.MakaleId);
+            string[] dizi= bul.Etiketler.Split(',');
+            ViewData["Etiketim"] = dizi;
+
             return View(data);
         }
         [AllowAnonymous]

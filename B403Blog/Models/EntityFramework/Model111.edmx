@@ -78,6 +78,7 @@
           <Property Name="YazarID" Type="int" Nullable="false" />
           <Property Name="ResimID" Type="int" />
           <Property Name="Aktif" Type="bit" />
+          <Property Name="Etiketler" Type="nvarchar(max)" />
         </EntityType>
         <EntityType Name="MakaleEtiket">
           <Key>
@@ -460,6 +461,7 @@
           <NavigationProperty Name="Yorum" Relationship="Self.FK_Yorum_Makale" FromRole="Makale" ToRole="Yorum" />
           <NavigationProperty Name="Etiket" Relationship="Self.MakaleEtiket" FromRole="Makale" ToRole="Etiket" />
           <Property Name="Aktif" Type="Boolean" />
+          <Property Name="Etiketler" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="Resim">
           <Key>
@@ -795,6 +797,7 @@
           <EntitySetMapping Name="Makale">
             <EntityTypeMapping TypeName="BlogYazilimModel.Makale">
               <MappingFragment StoreEntitySet="Makale">
+                <ScalarProperty Name="Etiketler" ColumnName="Etiketler" />
                 <ScalarProperty Name="Aktif" ColumnName="Aktif" />
                 <ScalarProperty Name="MakaleId" ColumnName="MakaleId" />
                 <ScalarProperty Name="Aciklama" ColumnName="Aciklama" />

@@ -65,7 +65,13 @@
                             @Html.ValidationMessageFor(m => m.KategoriID, "", new { @class = "text-danger" })
                         </td>
                     </tr>
-
+                    <tr>
+                        <th>Etiketler :</th>
+                        <td>
+                            @Html.TextBoxFor(m => m.Etiketler, new { @class = "form-control" })
+                            @Html.ValidationMessageFor(m => m.Etiketler, "", new { @class = "text-danger" })
+                        </td>
+                    </tr>
                     <tr>
                         <th>Resim : </th>
                         <td class="btn btn-outline-secondary" style="width: 100%;"> <input type="file" name="resim" id='eklenecekresim' value="" accept=".jpg,.jpeg,.png" required aria-required="true" /></td>
