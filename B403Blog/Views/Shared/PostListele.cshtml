@@ -1,6 +1,8 @@
 ﻿@using B403Blog.App_Classes
 @{
     Layout = null;
+    var isHome = ViewContext.RouteData.Values["controller"].ToString().ToUpper() == "HOME";
+    var isIndex = ViewContext.RouteData.Values["action"].ToString().ToUpper() == "INDEX";
 }
 
 @model IEnumerable<B403Blog.Models.EntityFramework.Makale>
@@ -33,6 +35,7 @@
         </div>
     </div>
 }
+
 <div class="row mx-0" id="silinecekpaging" style="width:770px;">
     <div class="col-12 text-center pb-4 pt-4">
         @*@Html.PagedListPager((IPagedList)Model, page => Url.Action("Index", new { page, @class = "btn_pagging" }), PagedListRenderOptions.PageNumbersOnly)
@@ -40,19 +43,16 @@
             @Html.PagedListPager((IPagedList)Model, page => Url.Action("index", new { PagedNo = page }))*@
 
         @Html.PagedListPager(
-    (IPagedList)Model,
-    page => Url.Action("Index",
-    new
-    {
-        page,
-    }
-    ),
-    new PagedListRenderOptions()
-    {
-        LiElementClasses = new List<string> {"myClass", "btn_pagging"}
-    })
-
-
-
+      (IPagedList)Model,
+      page => Url.Action("Index",
+      new
+      {
+          page,
+      }
+      ),
+      new PagedListRenderOptions()
+      {
+          LiElementClasses = new List<string> { "myClass", "btn_pagging" }
+      })
     </div>
 </div>

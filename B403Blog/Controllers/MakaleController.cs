@@ -37,8 +37,8 @@ namespace B403Blog.Controllers
             ViewBag.Title = baslik;
             var data = db.Makale.FirstOrDefault(x => x.MakaleId == id);
             var bul = db.Makale.Find(data.MakaleId);
-            string[] dizi= bul.Etiketler.Split(',');
-            ViewData["Etiketim"] = dizi;
+            //string[] dizi= bul.Etiketler.Split(',');
+            //ViewData["Etiketim"] = dizi;
 
             return View(data);
         }

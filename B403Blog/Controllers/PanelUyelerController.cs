@@ -88,12 +88,13 @@ namespace B403Blog.Controllers
 
         public ActionResult Sil(int id )
         {
+            //Kullanıcıyı bulur.
             var silinecekklnc = db.Kullanici.Find(id);
 
             //Kullanıcının bağlı olduğu rolü bulmak için;
             var userrol = db.KullaniciRol.Where(x => x.KullaniciID == id).SingleOrDefault();
 
-            if (silinecekklnc == null)
+            if (silinecekklnc == null || silinecekklnc.KullaniciId == 1)
                 return HttpNotFound();
             else
             {

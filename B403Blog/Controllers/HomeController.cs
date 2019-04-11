@@ -19,7 +19,6 @@ namespace B403Blog.Controllers
         BlogYazilimEntities2 db = new BlogYazilimEntities2();
 
 
-        [Route("Anasayfa")]
         public ActionResult Index()
         {
             return View();
