@@ -25,7 +25,7 @@ namespace B403Blog.Controllers
         }
 
         //Asıl Makale Listeleme Kısmı
-        [OutputCache(Duration =120)]
+        //[OutputCache(Duration =120)]
         public ActionResult MakaleListele(int? page)
         {
             //var data = db.Makale.OrderByDescending(x => x.EklenmeTarihi).Skip(5).ToList().ToPagedList(page ?? 1,7);
@@ -36,7 +36,7 @@ namespace B403Blog.Controllers
         }
 
         //Polüler Makaleler(En çok görüntülenen 3 makaleyi gösterir.)
-        [OutputCache(Duration = 120)]
+        //[OutputCache(Duration = 120)]
         public PartialViewResult PopulerMakalelerWidget()
         {
             var model = db.Makale.OrderByDescending(x => x.GoruntulenmeSayisi).Take(3).ToList();
@@ -45,13 +45,13 @@ namespace B403Blog.Controllers
 
 
         //Üst Post kısmı
-        [OutputCache(Duration = 120)]
+        //[OutputCache(Duration = 120)]
         public PartialViewResult AnaPost()
         {
             var model = db.Makale.OrderByDescending(x => x.EklenmeTarihi).Skip(1).Take(4).ToList();
             return PartialView(model);
         }
-        [OutputCache(Duration = 120)]
+        //[OutputCache(Duration = 120)]
         public ActionResult AnaPostOne()
         {
             var model  = db.Makale.OrderByDescending(x => x.EklenmeTarihi).Take(1).ToList();
