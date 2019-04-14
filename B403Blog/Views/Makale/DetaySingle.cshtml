@@ -6,21 +6,32 @@
 
 @section head{
     <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-<script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
-<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
-<!------ Include the above in your HEAD tag ---------->
+    <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
+    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+    <!------ Include the above in your HEAD tag ---------->
     <script src="~/Content/style/js/jQuery2.1.3.js"></script>
-@*<script>
-        $(document).ready(function () {
-            $("#postsilinecek").css("display", "none");
-        });
-    </script>*@
-<script>
+    @*<script>
+            $(document).ready(function () {
+                $("#postsilinecek").css("display", "none");
+            });
+        </script>*@
+    <script>
         $(document).ready(function () {
             $("#silinecekpaging").css("display", "none");
         });
-</script>
-<script type="text/javascript">
+    </script>
+    <script>
+        $(document).ready(function () {
+            $("#etiket").on({
+                mouseenter: function () {
+                    $(this).css("background-color", "f5bc04")
+                },
+                mouseleave: function () {
+                    $(this).css("background-color", "#5bc0de")
+                }
+        });
+    </script>
+    <script type="text/javascript">
     $(document).ready(function(){
         $.ajax({
             url: '/Makale/OkunmaArttir/',
@@ -28,19 +39,20 @@
             type:'GET',
         });
     })
-</script>
-    
+    </script>
+
 }
 
 @model B403Blog.Models.EntityFramework.Makale
 
-<img src="@Model.Resim.BuyukBoyut" alt="img" style="max-width:100% !important;height:auto !important;"  />
+<img src="@Model.Resim.BuyukBoyut" alt="img" style="max-width:100% !important;height:auto !important;" />
 
 
-    <div class="col-md-8 animate-box fadeInLeft animated-fast" data-animate-effect="fadeInLeft" style="max-width: 100%;width:100%;padding-top: 20px;" >
-        <h3> @Model.Baslik - (@Model.EklenmeTarihi.ToShortDateString()) </h3>  
-        @Html.Raw(Model.Icerik)
-    </div>
+<div class="col-md-8 animate-box fadeInLeft animated-fast" data-animate-effect="fadeInLeft" style="max-width: 100%;width:100%;padding-top: 20px;">
+    <h3> @Model.Baslik - (@Model.EklenmeTarihi.ToShortDateString()) </h3>
+    @Html.Raw(Model.Icerik)
+</div>
+
 
 
 <div class="container-fluid pb-4 pt-4 paddding" style="width:100%;">
@@ -57,10 +69,10 @@
                     <div class="col-md-8 col-xs-12 col-sm-6 col-lg-8">
                         <div class="container">
                             <h2>@Model.Kullanici.KullaniciAdi</h2>
-                            
-                             <p><b> Yazar </b></p>
 
-                            </div>
+                            <p><b> Yazar </b></p>
+
+                        </div>
                         <div class="col-sm-5 col-xs-6 tital ">Katılma Tarihi: @Model.Kullanici.KayitTarihi.ToShortDateString()</div>
                         <div class="col-sm-5 col-xs-6 tital "> <a href="/Yazar/Index/@Model.YazarID">Diğer Yazıları </a> </div>
                     </div>
@@ -93,6 +105,9 @@
     </script>
     <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
 </div>
-<div class="container-fluid pb-4 pt-4 paddding" style="width:100%;">
-    <div class="fh5co_tagg">@Model.Etiketler</div>
+<div id="etiket">
+    @foreach (var item in @Model.Etiketler.Split(','))
+    {
+        <div class="badge badge-pill badge-info"  style="background-color:#5bc0de;"> @item </div>
+    }
 </div>

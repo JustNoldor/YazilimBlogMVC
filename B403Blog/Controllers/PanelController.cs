@@ -38,7 +38,7 @@ namespace B403Blog.Controllers
 
         [ValidateInput(false)]
         [HttpPost]
-        public ActionResult Ekle(Makale mkl, HttpPostedFileBase resim)
+        public ActionResult Ekle(Makale mkl, HttpPostedFileBase resim, Etiket etkt)
         {
 
 
@@ -59,6 +59,8 @@ namespace B403Blog.Controllers
             rsm.OrtaBoyut = "/Content/MakaleResim/OrtaBoyut/" + resim.FileName + uzantitarih + uzantiresim;
             rsm.KucukBoyut = "/Content/MakaleResim/KucukBoyut/" + resim.FileName + uzantitarih + uzantiresim;
 
+            db.Etiket.Add(etkt);
+            //mkl.Etiket = etkt.EtiketId;
             db.Resim.Add(rsm);
             db.SaveChanges();
             mkl.ResimID = rsm.ResimId;
