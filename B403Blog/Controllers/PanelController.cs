@@ -59,8 +59,7 @@ namespace B403Blog.Controllers
             rsm.OrtaBoyut = "/Content/MakaleResim/OrtaBoyut/" + resim.FileName + uzantitarih + uzantiresim;
             rsm.KucukBoyut = "/Content/MakaleResim/KucukBoyut/" + resim.FileName + uzantitarih + uzantiresim;
 
-            db.Etiket.Add(etkt);
-            //mkl.Etiket = etkt.EtiketId;
+ 
             db.Resim.Add(rsm);
             db.SaveChanges();
             mkl.ResimID = rsm.ResimId;
@@ -87,6 +86,7 @@ namespace B403Blog.Controllers
             return RedirectToAction("Index");
             }
         }
+
 
         [ValidateInput(false)]
         public ActionResult Guncelle(int id, HttpPostedFileBase resim,Makale mkl)
@@ -136,7 +136,7 @@ namespace B403Blog.Controllers
                     db.Resim.Add(rsm);
                     model.ResimID = rsm.ResimId;
 
-
+                    model.Etiketler = mkl.Etiketler;
                     model.Aciklama = mkl.Aciklama;
                     model.Baslik = mkl.Baslik;
                     model.Icerik = mkl.Icerik;
@@ -154,15 +154,6 @@ namespace B403Blog.Controllers
 
                 return View();
             }
-
-
-
-            //if (model==null)
-            //{
-            //    return HttpNotFound();
-            //}
-            //ViewBag.KategoriId = new SelectList(db.Kategori, "KategoriID", "Adi", model.KategoriID);
-            //return View("PanelForm",model);
 
         }
 

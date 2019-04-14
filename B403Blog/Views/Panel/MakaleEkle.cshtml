@@ -13,7 +13,7 @@
 <script src="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.11/summernote.js"></script>
 
 
-<div class="card shadow mb-4">
+<div class="card shadow mb-4" style="max-width:1125px">
     <div class="card-header py-3">
         <h4 class="m-0 font-weight-bold text-primary"> Makale Ekle</h4>
     </div>
@@ -24,14 +24,14 @@
                 <table class="table table-bordered">
 
                     <tr>
-                        <th>Başlık :</th>
+                        <th>Başlık:</th>
                         <td>
                             @Html.TextBoxFor(m => m.Baslik, new { @class = "form-control" })
                             @Html.ValidationMessageFor(m => m.Baslik, "", new { @class = "text-danger" })
                         </td>
                     </tr>
                     <tr>
-                        <th>Açıklama :</th>
+                        <th>Açıklama:</th>
                         <td>
                             @Html.TextBoxFor(m => m.Aciklama, new { @class = "form-control" })
                             @Html.ValidationMessageFor(m=>m.Aciklama, "", new { @class = "text-danger" })
@@ -48,7 +48,7 @@
                                     $('#summernote').summernote({
                                         height: 400,
                                         tabsize: 2,
-                                        width: 825,
+                                        width: 925,
                                     });
                                 });
                             </script>
