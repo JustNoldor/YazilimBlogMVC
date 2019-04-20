@@ -51,12 +51,6 @@ namespace B403Blog.Controllers
             return View();
         }
 
-        //SEO URL Helper
-       
-        
-
-
-
 
     }
 }

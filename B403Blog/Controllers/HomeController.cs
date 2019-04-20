@@ -25,7 +25,7 @@ namespace B403Blog.Controllers
         }
 
         //Asıl Makale Listeleme Kısmı
-        //[OutputCache(Duration =120)]
+        [OutputCache(Duration =120)]
         public ActionResult MakaleListele(int? page)
         {
             //var data = db.Makale.OrderByDescending(x => x.EklenmeTarihi).Skip(5).ToList().ToPagedList(page ?? 1,7);
@@ -35,23 +35,23 @@ namespace B403Blog.Controllers
             return View("PostListele", duzenlenmisdata);
         }
 
-        //Polüler Makaleler(En çok görüntülenen 3 makaleyi gösterir.)
-        //[OutputCache(Duration = 120)]
+        //Popüler Makaleler(En çok görüntülenen 3 makaleyi gösterir.)
+        [OutputCache(Duration = 120)]
         public PartialViewResult PopulerMakalelerWidget()
         {
-            var model = db.Makale.OrderByDescending(x => x.GoruntulenmeSayisi).Take(3).ToList();
+            var model = db.Makale.OrderByDescending(x => x.GoruntulenmeSayisi).Take(5).ToList();
             return PartialView(model);
         }
 
 
         //Üst Post kısmı
-        //[OutputCache(Duration = 120)]
+        [OutputCache(Duration = 120)]
         public PartialViewResult AnaPost()
         {
             var model = db.Makale.OrderByDescending(x => x.EklenmeTarihi).Skip(1).Take(4).ToList();
             return PartialView(model);
         }
-        //[OutputCache(Duration = 120)]
+        [OutputCache(Duration = 120)]
         public ActionResult AnaPostOne()
         {
             var model  = db.Makale.OrderByDescending(x => x.EklenmeTarihi).Take(1).ToList();
@@ -70,10 +70,30 @@ namespace B403Blog.Controllers
         public ActionResult TrendMakaleler()
         {
             DateTime birhaftaonce = DateTime.Now.AddDays(-7);
+            DateTime ikihaftaonce = DateTime.Now.AddDays(-14);
             var makalelersonbirhafta = db.Makale.Where(x => x.EklenmeTarihi > birhaftaonce).ToList();
-            var goruntulenen = makalelersonbirhafta.OrderByDescending(x => x.GoruntulenmeSayisi).Take(6).ToList();
-            return PartialView(goruntulenen);
+            var makalelersonikihafta = db.Makale.Where(x => x.EklenmeTarihi > ikihaftaonce).ToList();
 
+            var goruntulenen = makalelersonbirhafta.OrderByDescending(x => x.GoruntulenmeSayisi).Take(6).ToList();
+            var goruntulenen2 = makalelersonikihafta.OrderByDescending(x => x.GoruntulenmeSayisi).Take(6).ToList();
+
+
+            if (goruntulenen.Count()==0)
+            {
+                return PartialView(goruntulenen2);
+            }
+            else
+            {
+                return PartialView(goruntulenen);
+            }
+
+        }
+
+        //Menü için Trend Kategoriler
+        public ActionResult TrendKategoriler()
+        {
+            var encok = db.Kategori.OrderByDescending(x => x.Makale.Count).Take(7).ToList();
+            return PartialView(encok);
         }
 
     }

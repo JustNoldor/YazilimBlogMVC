@@ -94,6 +94,7 @@ namespace B403Blog.Controllers
             //Kullanıcının bağlı olduğu rolü bulmak için;
             var userrol = db.KullaniciRol.Where(x => x.KullaniciID == id).SingleOrDefault();
 
+            //Asıl Adminin silmesini engeller.
             if (silinecekklnc == null || silinecekklnc.KullaniciId == 1)
                 return HttpNotFound();
             else

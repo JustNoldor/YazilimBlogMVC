@@ -60,19 +60,22 @@
 
                     @foreach (B403Blog.Models.EntityFramework.Kullanici user in Model)
                     {
-                        <tr>
-                            <td>@user.KullaniciAdi</td>
-                            <td>@user.MailAdres</td>
-                            <td>@user.KayitTarihi</td>
-                            <td>
-                                @user.Role
+                    <tr>
+                        <td>@user.KullaniciAdi</td>
+                        <td>@user.MailAdres</td>
+                        <td>@user.KayitTarihi</td>
+                        @if (@user.Role == "2")
+                        {
+                            <td>Admin</td>
+                        }
+                        @if (@user.Role == "1")
+                        {
+                            <td>Mod</td>
+                        }
 
-                            </td>
-
-
-                            <td> @Html.ActionLink("Güncelle", "Guncelle", new { id = user.KullaniciId }, new { @class = "btn btn-warning" }) </td>
-                            <td> <a class="btn btn-danger btnUyeSil" data-id="@user.KullaniciId">Sil</a></td>
-                        </tr>
+                        <td> @Html.ActionLink("Güncelle", "Guncelle", new { id = user.KullaniciId }, new { @class = "btn btn-warning" }) </td>
+                        <td> <a class="btn btn-danger btnUyeSil" data-id="@user.KullaniciId">Sil</a></td>
+                    </tr>
                     }
                 </tbody>
 

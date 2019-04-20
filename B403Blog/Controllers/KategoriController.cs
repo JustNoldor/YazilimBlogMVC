@@ -32,6 +32,7 @@ namespace B403Blog.Controllers
         public ActionResult MakaleListele(int id)
         {
             var data = db.Makale.Where(x => x.Kategori.KategoriId == id).OrderByDescending(x=>x.EklenmeTarihi).ToList();
+            var duzenlenmiscategory = data.Where(x => x.Aktif == true).ToList();
             return View("MakaleListeleWidget", data);
         }
 

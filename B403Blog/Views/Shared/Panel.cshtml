@@ -101,8 +101,8 @@
                 </div>
             </li>
             <!-- Nav Item - Utilities Collapse Menu -->
-            @*@if (User.IsInRole("1"))
-            { }*@
+            @if (User.IsInRole("1"))
+            {
             <li class="nav-item">
                 <a class="nav-link" href="/TicketGonder/TicketGonderEkle/Index">
                     <i class="fas fa-fw fa-wrench"></i>
@@ -118,7 +118,7 @@
                     </div>
                 </div>
             </li>
-
+            }
             <!-- Divider -->
 
 
@@ -145,7 +145,7 @@
 
                 <!-- Nav Item - Charts -->
                 <li class="nav-item">
-                    <a class="nav-link" href="charts.html">
+                    <a class="nav-link" href="#">
                         <i class="fas fa-fw fa-chart-area"></i>
                         <span>Log Listesi</span>
                     </a>

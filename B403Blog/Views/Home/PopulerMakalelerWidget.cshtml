@@ -1,5 +1,7 @@
 ﻿@model IEnumerable<B403Blog.Models.EntityFramework.Makale>
 
+@using B403Blog.App_Classes
+
 @foreach (B403Blog.Models.EntityFramework.Makale makale in Model)
 {
     <div class="row pb-3">
@@ -9,9 +11,9 @@
             <img src="@makale.Resim.KucukBoyut" alt="img" class="fh5co_most_trading" />
         </div>
         <div class="col-7 paddding">
-            <div class="most_fh5co_treding_font"> <a href="/Makale/DetaySingle/@makale.MakaleId">@makale.Baslik</a></div>
+            <div class="most_fh5co_treding_font"> <a href="/Makaleler/@Url.FriendlyURLTitle(makale.Kategori.Adi)/@Url.FriendlyURLTitle(makale.Baslik)-@makale.MakaleId">@makale.Baslik</a></div>
             <div class="most_fh5co_treding_font_123"> @makale.EklenmeTarihi.ToShortDateString()</div>
         </div>
-   
+
     </div>
 }

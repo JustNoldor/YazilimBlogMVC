@@ -5,6 +5,8 @@
 
 @model IEnumerable<B403Blog.Models.EntityFramework.Makale>
 
+@using B403Blog.App_Classes
+
 <div>
     <div class="fh5co_heading fh5co_heading_border_bottom py-2 mb-4">Makaleler</div>
 </div>
@@ -21,7 +23,7 @@
             </div>
         </div>
         <div class="col-md-7 animate-box">
-            <a href="/Makale/DetaySingle/@mkl.MakaleId" class="fh5co_magna py-2">
+            <a href="/Makaleler/@Url.FriendlyURLTitle(@mkl.Kategori.Adi)/@Url.FriendlyURLTitle(@mkl.Baslik)-@mkl.MakaleId" class="fh5co_magna py-2">
                 @mkl.Baslik
             </a> <a href="#" class="fh5co_mini_time py-3">
                 @mkl.Kullanici.KullaniciAdi - @mkl.EklenmeTarihi.ToShortDateString()

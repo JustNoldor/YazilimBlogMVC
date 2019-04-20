@@ -135,7 +135,7 @@ namespace B403Blog.Controllers
                     //Resimi ekleyip Makaleye bağlı olan ResimID'yi değiştirir.
                     db.Resim.Add(rsm);
                     model.ResimID = rsm.ResimId;
-
+                    model.Aktif = true;
                     model.Etiketler = mkl.Etiketler;
                     model.Aciklama = mkl.Aciklama;
                     model.Baslik = mkl.Baslik;

@@ -1,0 +1,8 @@
+﻿@model IEnumerable<B403Blog.Models.EntityFramework.Kategori>
+
+@foreach (B403Blog.Models.EntityFramework.Kategori kategori in Model)
+{
+    <li class="nav-item ">
+        <a class="nav-link" href="/Kategori/Index/@kategori.KategoriId">@kategori.Adi <span class="sr-only">(current)</span></a>
+    </li>
+}
