@@ -1,5 +1,5 @@
 # YazilimBlogMVC
-ASP.NET MVC ile geliştirdiğim Blog Sitesi.İleri seviye blog sitesinin özelliklerine sahip olmakla beraber şuan yayındadır; 
+ASP.NET MVC ile geliştirdiğim blog sitesi.
 http://yazilimkosesi.com/
 
 Proje içerisinde eklediğim özellikler
